@@ -1,0 +1,38 @@
+﻿<Window x:Class="UniversCorps.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UniversCorps"
+        mc:Ignorable="d"
+        Height="600" Width="800" WindowStartupLocation="CenterScreen"
+        Style="{StaticResource MainWindow}">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="41"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+        <!--#region Верхняя панель-->
+
+        <Border Name="BrdUpPanel" Style="{StaticResource BrdUpPanel}" MouseLeftButtonDown="BrdUpPanel_MouseLeftButtonDown"/>
+
+        <Button Name="BtnExit" Style="{StaticResource BtnExit}" Click="BtnExit_Click"/>
+        <Button Name="BtnSizeWindow" Style="{StaticResource BtnSizeWindow}" Click="BtnSizeWindow_Click"/>
+        <Button Name="BtnMinWindow" Style="{StaticResource BtnMinWindow}" Click="BtnMinWindow_Click"/>
+
+        <Image Style="{StaticResource ImgLogo}"/>
+
+        <TextBlock Name="TxtTitle" Style="{StaticResource TxtTitle}"/>
+
+        <Frame Name="FrmMain" NavigationUIVisibility="Hidden" Grid.Row="1"/>
+
+        <!--#endregion-->
+        
+    </Grid>
+
+</Window>
