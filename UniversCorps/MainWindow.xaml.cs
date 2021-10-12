@@ -29,21 +29,7 @@ namespace UniversCorps
 
             ClassNavigate.ClassFrmMain = FrmMain;
 
-            FrmMain.Navigate(new PagesCorp.PageCorpMain());
-
-            switch (this.WindowState)
-
-            {
-
-                case WindowState.Maximized:
-                    BtnSizeWindow.ToolTip = "Развернуть";
-                    break;
-
-                case WindowState.Normal:
-                    BtnSizeWindow.ToolTip = "Восстановить";
-                    break;
-
-            } //Изменение ToolTip для BtnSizeWindow в соответствии с размером окна во время загрузки приложения
+            FrmMain.Navigate(new PageCorpMain());
 
         }
 
@@ -75,12 +61,10 @@ namespace UniversCorps
 
                 case WindowState.Maximized:
                     this.WindowState = WindowState.Normal;
-                    BtnSizeWindow.ToolTip = "Развернуть";
                     break;
 
                 case WindowState.Normal:
                     this.WindowState = WindowState.Maximized;
-                    BtnSizeWindow.ToolTip = "Восстановить";
                     break;
             
             }
@@ -111,8 +95,31 @@ namespace UniversCorps
        
         }
 
+        /// <summary>
+        ///Изменение ToolTip для BtnSizeWindow в соответствии с размером окна
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            switch (this.WindowState)
+
+            {
+
+                case WindowState.Maximized:
+                    BtnSizeWindow.ToolTip = "Восстановить";
+                    break;
+
+                case WindowState.Normal:
+                    BtnSizeWindow.ToolTip = "Развернуть";
+                    break;
+
+            }
+
+        }
+        
         #endregion
-    
+
     }
 
 }

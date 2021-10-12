@@ -54,6 +54,7 @@
 
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Text" Value="{Binding ElementName=FrmMain, Path=Content.Title}"/>
 
         </Style>
             
@@ -280,8 +281,8 @@
             <Setter Property="MaxHeight" Value="1100"/>
 
             <Setter Property="WindowChrome.WindowChrome">
-            
-            <Setter.Value>
+
+                <Setter.Value>
                 
                 <WindowChrome GlassFrameThickness="5" ResizeBorderThickness="10" CaptionHeight="38"/>
             

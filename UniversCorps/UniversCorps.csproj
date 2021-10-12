@@ -107,7 +107,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataBase\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Logo.png" />
