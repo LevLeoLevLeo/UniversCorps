@@ -82,18 +82,6 @@ namespace UniversCorps
             this.WindowState = WindowState.Minimized;
 
         }
-        
-        /// <summary>
-        /// Перемещение окна
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BrdUpPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-            this.DragMove();
-       
-        }
 
         /// <summary>
         ///Изменение ToolTip для BtnSizeWindow в соответствии с размером окна

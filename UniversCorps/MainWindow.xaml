@@ -19,7 +19,7 @@
 
         <!--#region Верхняя панель-->
 
-        <Border Name="BrdUpPanel" Style="{StaticResource BrdUpPanel}" MouseLeftButtonDown="BrdUpPanel_MouseLeftButtonDown"/>
+        <Border Name="BrdUpPanel" Style="{StaticResource BrdUpPanel}"/>
 
         <Button Name="BtnExit" Style="{StaticResource BtnExit}" Click="BtnExit_Click"/>
         <Button Name="BtnSizeWindow" Style="{StaticResource BtnSizeWindow}" Click="BtnSizeWindow_Click"/>

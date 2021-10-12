@@ -277,14 +277,14 @@
             <Setter Property="ResizeMode" Value="CanResize"/>
             <Setter Property="MinWidth" Value="400"/>
             <Setter Property="MinHeight" Value="200"/>
-            <Setter Property="MaxWidth" Value="2000"/>
+            <Setter Property="MaxWidth" Value="3000"/>
             <Setter Property="MaxHeight" Value="1100"/>
 
             <Setter Property="WindowChrome.WindowChrome">
 
                 <Setter.Value>
                 
-                <WindowChrome GlassFrameThickness="5" ResizeBorderThickness="10" CaptionHeight="38"/>
+                <WindowChrome GlassFrameThickness="5" ResizeBorderThickness="10" CaptionHeight="30"/>
             
             </Setter.Value>
             
@@ -301,8 +301,6 @@
             <Setter Property="Grid.Row" Value="0"/>
             <Setter Property="BorderBrush" Value="#FFF"/>
             <Setter Property="BorderThickness" Value="0 0 0 2"/>
-            <Setter Property="Background" Value="#121212"/>
-            <Setter Property="AllowDrop" Value="True"/>
 
         </Style>
         
