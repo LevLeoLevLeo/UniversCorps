@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UniversCorps.Class;
+using UniversCorps.DataBase;
 using UniversCorps.PagesCorp;
 
 namespace UniversCorps
@@ -27,6 +28,8 @@ namespace UniversCorps
             
             InitializeComponent();
 
+            ClassDataBase.UniversClassFundEntities = new UniversClassFundEntities();
+            
             ClassNavigate.ClassFrmMain = FrmMain;
 
             FrmMain.Navigate(new PageCorpMain());

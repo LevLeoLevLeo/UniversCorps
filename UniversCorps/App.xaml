@@ -277,8 +277,9 @@
             <Setter Property="ResizeMode" Value="CanResize"/>
             <Setter Property="MinWidth" Value="400"/>
             <Setter Property="MinHeight" Value="200"/>
-            <Setter Property="MaxWidth" Value="3000"/>
+            <Setter Property="MaxWidth" Value="2000"/>
             <Setter Property="MaxHeight" Value="1100"/>
+            <Setter Property="AllowsTransparency" Value="False"/>
 
             <Setter Property="WindowChrome.WindowChrome">
 
@@ -301,6 +302,47 @@
             <Setter Property="Grid.Row" Value="0"/>
             <Setter Property="BorderBrush" Value="#FFF"/>
             <Setter Property="BorderThickness" Value="0 0 0 2"/>
+
+        </Style>
+        
+        <!--#endregion-->
+        
+        <!--#region DataGrid-->
+
+        <Style TargetType="DataGrid" x:Key="DGMain">
+
+            <Setter Property="Margin" Value="0 10 0 0"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="Foreground" Value="#FFF"/>
+            <Setter Property="FontFamily" Value="Roboto"/>
+            <Setter Property="FontSize" Value="26pt"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Background" Value="#121212"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="CanUserResizeColumns" Value="False"/>
+            <Setter Property="CanUserReorderColumns" Value="False"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="CanUserSortColumns" Value="False"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+            <Setter Property="RowBackground" Value="#121212"/>
+            <Setter Property="AlternatingRowBackground" Value="#121212"/>
+            <Setter Property="HeadersVisibility" Value="None"/>
+            <Setter Property="BorderThickness" Value="0 0 0 0"/>
+            <Setter Property="BorderBrush" Value="#121212"/>
+
+
+
+
+
+
+
+
+
+
 
         </Style>
         

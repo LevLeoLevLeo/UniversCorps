@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UniversCorps.DataBase;
 
 namespace UniversCorps.PagesCorp
 {
@@ -22,7 +23,10 @@ namespace UniversCorps.PagesCorp
     {
         public PageCorpMain()
         {
+            
             InitializeComponent();
+
+            DGCorps.ItemsSource = ClassDataBase.UniversClassFundEntities.Corps.ToList();
         }
     }
 }
