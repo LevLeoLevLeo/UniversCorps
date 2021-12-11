@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="990cc42746534b4b8b2928aac2b7b48a" Name="Diagram1">
+      <Diagram DiagramId="990cc42746534b4b8b2928aac2b7b48a" Name="Diagram1" ZoomLevel="113">
         <EntityTypeShape EntityType="UniversClassFundModel.CaseName" Width="1.5" PointX="5.75" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="UniversClassFundModel.Ceiling" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="UniversClassFundModel.Corps" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />

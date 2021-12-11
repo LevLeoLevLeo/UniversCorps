@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-Z:\Practik\UniversCorps\UniversCorps\obj\Debug\
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\
 UniversCorps
 none
 false
 DEBUG;TRACE
-Z:\Practik\UniversCorps\UniversCorps\App.xaml
-2-520518234
-2-290982251
-25-134956844
-181654901729
-MainWindow.xaml;PagesCorp\PageCorpMain.xaml;
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\App.xaml
+4-1646422885
+2-1670966889
+27-1490730015
+181306801151
+DialogBox\DislogChangeCorpName.xaml;MainWindow.xaml;PagesCorp\PageCorpMain.xaml;DialogBox\DilogDeleteQ.xaml;
 
-False
+True
 

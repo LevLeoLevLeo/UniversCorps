@@ -59,3 +59,15 @@ Z:\Practik\UniversCorps\UniversCorps\bin\Debug\EntityFramework.SqlServer.xml
 Z:\Practik\UniversCorps\UniversCorps\bin\Debug\ru\EntityFramework.resources.dll
 Z:\Practik\UniversCorps\UniversCorps\obj\Debug\UniversCorps_Content.g.cs
 Z:\Practik\UniversCorps\UniversCorps\obj\Debug\UniversCorps.csproj.CopyComplete
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\bin\Debug\EntityFramework.dll
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\bin\Debug\EntityFramework.xml
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\UniversCorps_Content.g.cs
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\UniversCorps.csproj.CopyComplete
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\UniversCorps.csproj.SuggestedBindingRedirects.cache
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DilogDeleteQ.g.cs
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DilogDeleteQ.baml
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DislogChangeCorpName.g.cs
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DislogChangeCorpName.baml

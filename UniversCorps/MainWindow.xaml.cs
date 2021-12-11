@@ -29,7 +29,10 @@ namespace UniversCorps
             InitializeComponent();
 
             ClassDataBase.UniversClassFundEntities = new UniversClassFundEntities();
-            
+
+            this.MaxHeight = SystemParameters.VirtualScreenHeight - 33;
+            this.MaxWidth = SystemParameters.VirtualScreenWidth;
+
             ClassNavigate.ClassFrmMain = FrmMain;
 
             FrmMain.Navigate(new PageCorpMain());
@@ -98,17 +101,20 @@ namespace UniversCorps
             {
 
                 case WindowState.Maximized:
+                    WinMain.BorderThickness = new Thickness(7.4, 7.4, 7.4, 0);
                     BtnSizeWindow.ToolTip = "Восстановить";
+                    
                     break;
 
                 case WindowState.Normal:
+                    WinMain.BorderThickness = new Thickness(0, 0, 0, 0);
                     BtnSizeWindow.ToolTip = "Развернуть";
                     break;
 
             }
 
         }
-        
+
         #endregion
 
     }

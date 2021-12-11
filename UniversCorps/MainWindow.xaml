@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniversCorps"
         mc:Ignorable="d"
-        Height="600" Width="800" WindowStartupLocation="CenterScreen"
+        Name="WinMain" BorderBrush="#121212"  Height="600" Width="800" WindowStartupLocation="CenterScreen"
         Style="{StaticResource MainWindow}" SizeChanged="MainWindow_SizeChanged">
 
     <Grid>
