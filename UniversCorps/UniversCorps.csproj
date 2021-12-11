@@ -67,9 +67,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DialogBox\DialogAddCorp.xaml.cs">
+      <DependentUpon>DialogAddCorp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DialogBox\DilogDeleteQ.xaml.cs">
       <DependentUpon>DilogDeleteQ.xaml</DependentUpon>
     </Compile>
+    <Page Include="DialogBox\DialogAddCorp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DialogBox\DislogChangeCorpName.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

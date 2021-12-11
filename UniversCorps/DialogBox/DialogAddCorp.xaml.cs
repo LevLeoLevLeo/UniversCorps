@@ -16,29 +16,27 @@ using UniversCorps.DataBase;
 namespace UniversCorps.DialogBox
 {
     /// <summary>
-    /// Логика взаимодействия для DislogChangeCorpName.xaml
+    /// Логика взаимодействия для DialogAddCorp.xaml
     /// </summary>
-    public partial class DislogChangeCorpName : Window
+    public partial class DialogAddCorp : Window
     {
-        public DislogChangeCorpName()
-        
+        public DialogAddCorp()
         {
-        
             InitializeComponent();
-
-            TxbCorrectName.Text = ClassDataBase.CurrentCurpus.Name;
-        
         }
 
-        private void BtnChange_Click(object sender, RoutedEventArgs e)
-        
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
 
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
             try
 
             {
 
-                if (string.IsNullOrWhiteSpace(TxbNewName.Text))
+                if (string.IsNullOrWhiteSpace(TxbNewCorp.Text))
 
                 {
 
@@ -48,8 +46,8 @@ namespace UniversCorps.DialogBox
 
                 else
 
-                {
-                    var corpname = ClassDataBase.UniversClassFundEntities.Corps.FirstOrDefault(x => x.Name == TxbNewName.Text);
+                {   
+                    var corpname = ClassDataBase.UniversClassFundEntities.Corps.FirstOrDefault(x => x.Name == TxbNewCorp.Text);
 
                     if (corpname != null) MessageBox.Show("Данный корпус уже внесен в базу данных.", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -59,12 +57,19 @@ namespace UniversCorps.DialogBox
 
                         this.DialogResult = true;
 
-                        ClassDataBase.CurrentCurpus.Name = TxbNewName.Text;
+                        Corps corps = new Corps()
+
+                        {
+
+                            Name = TxbNewCorp.Text
+
+                        };
+
+                        ClassDataBase.UniversClassFundEntities.Corps.Add(corps);
                         ClassDataBase.UniversClassFundEntities.SaveChanges();
 
-                    }
+                    }       
                 }
-
             }
 
             catch (Exception ex)
@@ -73,25 +78,12 @@ namespace UniversCorps.DialogBox
 
                 MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 this.Close();
-
             }
-
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
-        
         {
-            
             this.Close();
-        
-        }
-
-        private void BtnClose_Click(object sender, RoutedEventArgs e)
-        
-        {
-        
-            this.Close();
-        
         }
     }
 }

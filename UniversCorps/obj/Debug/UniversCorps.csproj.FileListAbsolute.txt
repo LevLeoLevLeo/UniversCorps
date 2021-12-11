@@ -71,3 +71,5 @@ C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DilogDelete
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DilogDeleteQ.baml
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DislogChangeCorpName.g.cs
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DislogChangeCorpName.baml
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DialogAddCorp.g.cs
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DialogAddCorp.baml

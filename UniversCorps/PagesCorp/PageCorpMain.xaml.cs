@@ -56,7 +56,32 @@ namespace UniversCorps.PagesCorp
         
         {
 
+            try
 
+            {
+
+                    ClassDataBase.CurrentCurpus = (Corps)DGCorps.SelectedValue;
+
+                    DialogAddCorp dialogAddCorp = new DialogAddCorp();
+                    dialogAddCorp.ShowDialog();
+
+                    if (dialogAddCorp.DialogResult == true)
+
+                    {
+
+                        DGCorps.ItemsSource = ClassDataBase.UniversClassFundEntities.Corps.ToList();
+
+                    }
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
         }
 
