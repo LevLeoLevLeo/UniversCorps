@@ -120,7 +120,7 @@ namespace UniversCorps.PagesCorp
                 {
 
                     MessageBox.Show("В поля допускается ввод только целочисленных и десятичных чисел, разделяемых запятой",
-                        "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
+                        "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
 
                 }
 
@@ -154,7 +154,7 @@ namespace UniversCorps.PagesCorp
 
                     ClassDataBase.UniversClassFundEntities.UniClassFundCorps.Add(uniClass);
                     ClassDataBase.UniversClassFundEntities.SaveChanges();
-                    ClassNavigate.ClassFrmMain.GoBack();
+                    ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
 
                 }
 

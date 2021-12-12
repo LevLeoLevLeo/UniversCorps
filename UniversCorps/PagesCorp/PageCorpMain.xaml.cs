@@ -139,39 +139,52 @@ namespace UniversCorps.PagesCorp
        /// <param name="sender"></param>
        /// <param name="e"></param>
         private void BtnDeleteCorp_Click(object sender, RoutedEventArgs e)
+        
         {
 
             try
 
             {
 
+
                 if (DGCorps.SelectedValue != null)
-
-                {
-
-                    ClassDataBase.CurrentCorpus = (Corps)DGCorps.SelectedValue;
                 
-                    WinDeleteQ winDeleteQ = new WinDeleteQ();
-                    SystemSounds.Beep.Play();
-                    winDeleteQ.ShowDialog();
+                {
+                 
+                    ClassDataBase.CurrentCorpus = (Corps)DGCorps.SelectedValue;
 
-                    if (winDeleteQ.DialogResult == true)
+                    var emptyCorp = ClassDataBase.UniversClassFundEntities.UniClassFundCorps.FirstOrDefault(x => x.IdCorps == ClassDataBase.CurrentCorpus.Id);
+
+                    if (emptyCorp == null)
 
                     {
 
-                        ClassDataBase.UniversClassFundEntities.Corps.Remove(ClassDataBase.CurrentCorpus);
-                        ClassDataBase.UniversClassFundEntities.SaveChanges();
 
-                        DGCorps.ItemsSource = ClassDataBase.UniversClassFundEntities.Corps.ToList();
+                        WinDeleteQ winDeleteQ = new WinDeleteQ();
+                        SystemSounds.Beep.Play();
+                        winDeleteQ.ShowDialog();
 
-                    }
+                        if (winDeleteQ.DialogResult == true)
 
-                    else winDeleteQ.Close();
+                        {
+
+                            ClassDataBase.UniversClassFundEntities.Corps.Remove(ClassDataBase.CurrentCorpus);
+                            ClassDataBase.UniversClassFundEntities.SaveChanges();
+
+                            DGCorps.ItemsSource = ClassDataBase.UniversClassFundEntities.Corps.ToList();
+
+                        }
+
+                        else winDeleteQ.Close();
+
+                    }  
+                    
+                    else MessageBox.Show("Для удаления выберите пустой корпус", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 }
 
                 else MessageBox.Show("Для удаления выберите корпус", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                    
             }
 
             catch (Exception ex)
