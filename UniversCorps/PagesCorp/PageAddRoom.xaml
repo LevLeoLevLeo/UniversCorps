@@ -10,9 +10,12 @@
 
     <Grid>
 
+        
+            <ScrollViewer>
         <StackPanel Style="{StaticResource StpCenterVert}">
 
-            <StackPanel Style="{StaticResource StpCenterHorEqual}">
+
+                <StackPanel Style="{StaticResource StpCenterHorEqual}">
             
             <TextBlock Style="{StaticResource TxtCore}" Text="Введите номер комнаты:"/>
             <TextBox Name="TxbRoomNumber" Style="{StaticResource TxbCore}" Margin="10 0 0 0" Width="200"/>
@@ -28,27 +31,73 @@
 
             <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
 
-                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите высоту комнаты:"/>
-                <ComboBox Name="CmdHeight" SelectionChanged="CmdHeight_SelectionChanged" Margin="10 0 0 0" Width="200"/>
+                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите высоту комнаты (м):"/>
+                <ComboBox Name="CmdHeight" Margin="10 0 0 0" Width="200"/>
 
             </StackPanel>
 
             <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
 
-                <TextBlock Style="{StaticResource TxtCore}" Text="Введите ширину комнаты:"/>
+                    <TextBlock Style="{StaticResource TxtCore}" Text="Введите ширину комнаты (м):"/>
                 <TextBox Name="TxbWidth" Style="{StaticResource TxbCore}" Margin="10 0 0 0" Width="200"/>
 
             </StackPanel>
 
             <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
 
-                <TextBlock Style="{StaticResource TxtCore}" Text="Введите ширину комнаты:"/>
+                    <TextBlock Style="{StaticResource TxtCore}" Text="Введите длину комнаты (м):"/>
                 <TextBox Name="TxbLenght" Style="{StaticResource TxbCore}" Margin="10 0 0 0" Width="200"/>
 
             </StackPanel>
 
-        </StackPanel>
-    
+            <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
+
+                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите назначение комнаты:"/>
+                <ComboBox Name="CmdPurporseRoom" Margin="10 0 0 0" Width="200"/>
+
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
+
+                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите тип комнаты:"/>
+                <ComboBox Name="CmdTypeRoom" Margin="10 0 0 0" Width="200"/>
+
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
+
+                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите кафедру:"/>
+                <ComboBox Name="CmdDivision" Margin="10 0 0 0" Width="200"/>
+
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
+
+                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите факультет:"/>
+                <ComboBox Name="CmdFaculty" Margin="10 0 0 0" Width="200"/>
+
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
+
+                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите лабораторию:"/>
+                <ComboBox Name="CmdLaboratory" Margin="10 0 0 0" Width="200"/>
+
+            </StackPanel>
+
+                <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
+
+                    <Button Name="BtnAddRoom" Style="{StaticResource BtnMain}" Content="Добавить" Click="BtnAddRoom_Click"/>
+                    <Button Name="BtnClear" Style="{StaticResource BtnMain}" Margin="10 0 0 0" Content="Очистить" Click="BtnClear_Click"/>
+
+                </StackPanel>
+
+            </StackPanel>
+        
+            </ScrollViewer>
+
+        <Button Name="BtnBack" Style="{StaticResource BtnMain}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120" Margin="10 0 0 10" Content="Назад" Click="BtnBack_Click"/>
+
     </Grid>
 
 </Page>
