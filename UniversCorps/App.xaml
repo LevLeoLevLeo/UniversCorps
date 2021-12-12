@@ -342,10 +342,17 @@
         <Style TargetType="DataGrid" x:Key="DGRooms" BasedOn="{StaticResource DGMain}">
 
             <Setter Property="ColumnWidth" Value="*"/>
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="Foreground" Value="#121212"/>
             <Setter Property="CanUserResizeColumns" Value="True"/>
             <Setter Property="CanUserSortColumns" Value="True"/>
-            
+            <Setter Property="Background" Value="#FFF"/>
+            <Setter Property="RowBackground" Value="#FFF"/>
+            <Setter Property="AlternatingRowBackground" Value="#FFF"/>
+            <Setter Property="FontSize" Value="15pt"/>
+
             <Setter Property="HeadersVisibility" Value="Column"/>
 
         </Style>

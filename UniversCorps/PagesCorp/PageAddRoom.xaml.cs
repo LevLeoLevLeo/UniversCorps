@@ -114,12 +114,12 @@ namespace UniversCorps.PagesCorp
                     float.Parse(TxbLenght.Text, CultureInfo.InvariantCulture.NumberFormat);
 
                 }
-               
+
                 catch (Exception)
 
                 {
 
-                    MessageBox.Show("В поля допускается ввод только целочисленных и десятичных чисел, разделяемых запятой",
+                    MessageBox.Show("В поля допускается ввод только целочисленных и десятичных чисел",
                         "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
 
                 }
@@ -138,28 +138,46 @@ namespace UniversCorps.PagesCorp
 
                 {
 
-                    UniClassFundCorps uniClass = new UniClassFundCorps()
+                    int y = Convert.ToInt32(TxbRoomNumber.Text);
+
+                    var roomNumber = ClassDataBase.UniversClassFundEntities.UniClassFundCorps.Where(x => x.IdCorps == ClassDataBase.CurrentCorpus.Id).FirstOrDefault(x => x.Room == y);
+
+                    if (roomNumber != null)
 
                     {
 
-                        IdCorps = ClassDataBase.CurrentCorpus.Id,
-                        Room = Convert.ToInt32(TxbRoomNumber.Text),
-                        IdLocHei = Convert.ToInt32(CmdLocal.SelectedValue),
-                        WidthMeters = float.Parse(TxbWidth.Text, CultureInfo.InvariantCulture.NumberFormat),
-                        LengthMeters = float.Parse(TxbLenght.Text, CultureInfo.InvariantCulture.NumberFormat),
-                        IdPurporse = Convert.ToInt32(CmdPurporseRoom.SelectedValue),
-                        IdTypeOfRoom = Convert.ToInt32(CmdTypeRoom.SelectedValue),
+                        MessageBox.Show("Данная комната уже имеется в базе данных", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        TxbRoomNumber.Text = null;
 
-                    };
+                    }
 
-                    ClassDataBase.UniversClassFundEntities.UniClassFundCorps.Add(uniClass);
-                    ClassDataBase.UniversClassFundEntities.SaveChanges();
-                    ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
+                    else
+
+                    {
+
+                        UniClassFundCorps uniClass = new UniClassFundCorps()
+
+                        {
+
+                            IdCorps = ClassDataBase.CurrentCorpus.Id,
+                            Room = Convert.ToInt32(TxbRoomNumber.Text),
+                            IdLocHei = Convert.ToInt32(CmdLocal.SelectedValue),
+                            WidthMeters = float.Parse(TxbWidth.Text, CultureInfo.InvariantCulture.NumberFormat),
+                            LengthMeters = float.Parse(TxbLenght.Text, CultureInfo.InvariantCulture.NumberFormat),
+                            IdPurporse = Convert.ToInt32(CmdPurporseRoom.SelectedValue),
+                            IdTypeOfRoom = Convert.ToInt32(CmdTypeRoom.SelectedValue),
+
+                        };
+
+                        ClassDataBase.UniversClassFundEntities.UniClassFundCorps.Add(uniClass);
+                        ClassDataBase.UniversClassFundEntities.SaveChanges();
+                        ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
+
+                    }
 
                 }
-
             }
-
+            
             catch (Exception ex)
 
             {

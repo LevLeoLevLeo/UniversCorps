@@ -81,7 +81,7 @@ namespace UniversCorps.PagesCorp
 
                     ClassDataBase.CurrentRoom = (UniClassFundCorps)DGFund.SelectedValue;
 
-                    WinDeleteQ winDeleteQ = new WinDeleteQ();
+                    WinDeleteQ winDeleteQ = new WinDeleteQ(); //Диалоговое окно на подтверждение удаления
                     SystemSounds.Beep.Play();
                     winDeleteQ.ShowDialog();
 
@@ -92,7 +92,7 @@ namespace UniversCorps.PagesCorp
                         ClassDataBase.UniversClassFundEntities.UniClassFundCorps.Remove(ClassDataBase.CurrentRoom);
                         ClassDataBase.UniversClassFundEntities.SaveChanges();
 
-                        DGFund.ItemsSource = ClassDataBase.UniversClassFundEntities.UniClassFundCorps.ToList();
+                        DGFund.ItemsSource = ClassDataBase.UniversClassFundEntities.UniClassFundCorps.Where(x => x.IdCorps == ClassDataBase.CurrentCorpus.Id).ToList();
 
                     }
 
@@ -116,6 +116,14 @@ namespace UniversCorps.PagesCorp
 
         private void BtnInfoRoom_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        
+        {
+
+            ClassNavigate.ClassFrmMain.Navigate(new PageCorpMain());
 
         }
     }

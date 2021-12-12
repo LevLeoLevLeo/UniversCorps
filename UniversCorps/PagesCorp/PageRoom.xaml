@@ -22,6 +22,7 @@
             <DataGrid.Columns>
 
                 <DataGridTextColumn Header="Номер" Binding="{Binding Room}"/>
+                <DataGridTextColumn Header="Расположение" Binding="{Binding LocHei.Location.Name}"/>
                 <DataGridTextColumn Header="Тип" Binding="{Binding TypeOfRoom.Name}"/>
                 <DataGridTextColumn Header="Назначение" Binding="{Binding Purporse.Name}"/>
 
@@ -37,6 +38,8 @@
             <Button Name="BtnInfoRoom" Style="{StaticResource BtnMain}" Content="Информация" Margin="0 50 0 0" Click="BtnInfoRoom_Click"/>
 
         </StackPanel>
+
+        <Button Name="BtnBack" Style="{StaticResource BtnMain}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120" Margin="10 0 0 10" Content="Назад" Click="BtnBack_Click"/>
 
     </Grid>
 

@@ -208,9 +208,18 @@ namespace UniversCorps.PagesCorp
 
             {
 
+                if (DGCorps.SelectedValue != null)
+
+                {
+
                 ClassDataBase.CurrentCorpus = (Corps)DGCorps.SelectedValue;
 
                 ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
+                    
+                }
+
+                else MessageBox.Show("Для перехода к списку комнат выберите корпус", "Внимание!",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
 
