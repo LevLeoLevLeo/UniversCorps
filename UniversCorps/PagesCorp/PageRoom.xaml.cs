@@ -63,7 +63,33 @@ namespace UniversCorps.PagesCorp
         }
 
         private void BtnChangeInfo_Click(object sender, RoutedEventArgs e)
+        
         {
+
+            try
+
+            {
+
+                if (DGFund.SelectedValue != null)
+
+                {
+
+                    ClassDataBase.CurrentRoom = (UniClassFundCorps)DGFund.SelectedValue;
+                    ClassNavigate.ClassFrmMain.Navigate(new PageChangeRoom());
+
+                }
+
+                else MessageBox.Show("Для изменения информации выберите корпус", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
         }
 
@@ -115,7 +141,10 @@ namespace UniversCorps.PagesCorp
         }
 
         private void BtnInfoRoom_Click(object sender, RoutedEventArgs e)
+       
         {
+
+
 
         }
 

@@ -10,7 +10,6 @@
 
     <Grid>
 
-        
             <ScrollViewer>
         <StackPanel Style="{StaticResource StpCenterVert}">
 

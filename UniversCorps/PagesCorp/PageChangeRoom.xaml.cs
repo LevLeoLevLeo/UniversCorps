@@ -19,45 +19,61 @@ using UniversCorps.DataBase;
 namespace UniversCorps.PagesCorp
 {
     /// <summary>
-    /// Логика взаимодействия для PageAddRoom.xaml
+    /// Логика взаимодействия для PageChangeRoom.xaml
     /// </summary>
-    public partial class PageAddRoom : Page
+    public partial class PageChangeRoom : Page
     {
-        public PageAddRoom()
+        public PageChangeRoom()
         
         {
+
             try
 
             {
-             
+
                 InitializeComponent();
+
+                TxbRoomNumber.Text = ClassDataBase.CurrentRoom.Room.ToString();
+
+                TxbWidth.Text = ClassDataBase.CurrentRoom.WidthMeters.ToString();
+
+                TxbLenght.Text = ClassDataBase.CurrentRoom.LengthMeters.ToString();
 
                 CmdLocal.SelectedValuePath = "Id";
                 CmdLocal.DisplayMemberPath = "Location.Name";
                 CmdLocal.ItemsSource = ClassDataBase.UniversClassFundEntities.LocHei.ToList();
+                CmdLocal.SelectedItem = ClassDataBase.UniversClassFundEntities.LocHei.FirstOrDefault(x => ClassDataBase.CurrentRoom.IdLocHei == x.Id);
 
                 CmdHeight.SelectedValuePath = "Id";
                 CmdHeight.DisplayMemberPath = "Ceiling.HeightMeters";
+                int y = Convert.ToInt32(CmdLocal.SelectedValue);
+                CmdHeight.ItemsSource = ClassDataBase.UniversClassFundEntities.LocHei.Where(x => x.IdCeiling == y).ToList();
+                CmdHeight.SelectedItem = ClassDataBase.UniversClassFundEntities.LocHei.FirstOrDefault(x => ClassDataBase.CurrentRoom.IdLocHei == x.Id);
 
                 CmdPurporseRoom.SelectedValuePath = "Id";
                 CmdPurporseRoom.DisplayMemberPath = "Name";
                 CmdPurporseRoom.ItemsSource = ClassDataBase.UniversClassFundEntities.Purporse.ToList();
+                CmdPurporseRoom.SelectedItem = ClassDataBase.UniversClassFundEntities.Purporse.FirstOrDefault(x => ClassDataBase.CurrentRoom.IdPurporse == x.Id);
 
                 CmdTypeRoom.SelectedValuePath = "Id";
                 CmdTypeRoom.DisplayMemberPath = "Name";
                 CmdTypeRoom.ItemsSource = ClassDataBase.UniversClassFundEntities.TypeOfRoom.ToList();
+                CmdTypeRoom.SelectedValue = ClassDataBase.CurrentRoom.IdTypeOfRoom;
 
                 CmdDivision.SelectedValuePath = "Id";
                 CmdDivision.DisplayMemberPath = "Name";
                 CmdDivision.ItemsSource = ClassDataBase.UniversClassFundEntities.Department.ToList();
+                CmdDivision.SelectedValue = ClassDataBase.UniversClassFundEntities.Division.FirstOrDefault(x => ClassDataBase.CurrentRoom.IdDivision == x.Id);
 
-                CmdFaculty.SelectedValuePath= "Id";
+                CmdFaculty.SelectedValuePath = "Id";
                 CmdFaculty.DisplayMemberPath = "Name";
                 CmdFaculty.ItemsSource = ClassDataBase.UniversClassFundEntities.Faculty.ToList();
+                CmdFaculty.SelectedValue = ClassDataBase.UniversClassFundEntities.Faculty.FirstOrDefault(x => ClassDataBase.CurrentRoom.IdDivision == x.Id);
 
                 CmdLaboratory.SelectedValuePath = "Id";
-                CmdLaboratory.DisplayMemberPath= "Name";
+                CmdLaboratory.DisplayMemberPath = "Name";
                 CmdLaboratory.ItemsSource = ClassDataBase.UniversClassFundEntities.Laboratory.ToList();
+                CmdLaboratory.SelectedValue = ClassDataBase.UniversClassFundEntities.Laboratory.FirstOrDefault(x => ClassDataBase.CurrentRoom.IdDivision == x.Id);
 
             }
 
@@ -72,32 +88,7 @@ namespace UniversCorps.PagesCorp
 
         }
 
-        private void CmdLocal_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        
-        {
-
-            try
-
-            {
-
-                int y = Convert.ToInt32(CmdLocal.SelectedValue);
-
-                CmdHeight.ItemsSource = ClassDataBase.UniversClassFundEntities.LocHei.Where(x => x.IdCeiling == y).ToList();
-
-            }
-
-            catch (Exception ex)
-
-            {
-
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                ClassNavigate.ClassFrmMain.Navigate(new PageCorpMain());
-
-            }
-
-        }
-
-        private void BtnAddRoom_Click(object sender, RoutedEventArgs e)
+        private void BtnChangeRoom_Click(object sender, RoutedEventArgs e)
         
         {
 
@@ -155,21 +146,13 @@ namespace UniversCorps.PagesCorp
 
                     {
 
-                        UniClassFundCorps uniClass = new UniClassFundCorps()
+                        ClassDataBase.CurrentRoom.Room = Convert.ToInt32(TxbRoomNumber.Text);
+                        ClassDataBase.CurrentRoom.IdLocHei = Convert.ToInt32(CmdLocal.SelectedValue);
+                        ClassDataBase.CurrentRoom.WidthMeters = float.Parse(TxbWidth.Text, CultureInfo.InvariantCulture.NumberFormat);
+                        ClassDataBase.CurrentRoom.LengthMeters = float.Parse(TxbLenght.Text, CultureInfo.InvariantCulture.NumberFormat);
+                        ClassDataBase.CurrentRoom.IdPurporse = Convert.ToInt32(CmdPurporseRoom.SelectedValue);
+                        ClassDataBase.CurrentRoom.IdTypeOfRoom = Convert.ToInt32(CmdTypeRoom.SelectedValue);
 
-                        {
-
-                            IdCorps = ClassDataBase.CurrentCorpus.Id,
-                            Room = Convert.ToInt32(TxbRoomNumber.Text),
-                            IdLocHei = Convert.ToInt32(CmdLocal.SelectedValue),
-                            WidthMeters = float.Parse(TxbWidth.Text, CultureInfo.InvariantCulture.NumberFormat),
-                            LengthMeters = float.Parse(TxbLenght.Text, CultureInfo.InvariantCulture.NumberFormat),
-                            IdPurporse = Convert.ToInt32(CmdPurporseRoom.SelectedValue),
-                            IdTypeOfRoom = Convert.ToInt32(CmdTypeRoom.SelectedValue),
-
-                        };
-
-                        ClassDataBase.UniversClassFundEntities.UniClassFundCorps.Add(uniClass);
                         ClassDataBase.UniversClassFundEntities.SaveChanges();
                         ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
 
@@ -177,7 +160,7 @@ namespace UniversCorps.PagesCorp
 
                 }
             }
-            
+
             catch (Exception ex)
 
             {
@@ -186,6 +169,14 @@ namespace UniversCorps.PagesCorp
                 ClassNavigate.ClassFrmMain.Navigate(new PageCorpMain());
 
             }
+
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        
+        {
+            
+            ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
 
         }
 
@@ -206,12 +197,30 @@ namespace UniversCorps.PagesCorp
 
         }
 
-        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        private void CmdLocal_SelectionChanged(object sender, SelectionChangedEventArgs e)
         
         {
+            
+            try
 
-            ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
+            {
+
+            int y = Convert.ToInt32(CmdLocal.SelectedValue);
+            CmdHeight.ItemsSource = ClassDataBase.UniversClassFundEntities.LocHei.Where(x => x.IdCeiling == y).ToList();
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                ClassNavigate.ClassFrmMain.Navigate(new PageCorpMain());
+
+            }
 
         }
+
     }
+
 }

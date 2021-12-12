@@ -156,6 +156,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PagesCorp\PageChangeRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PagesCorp\PageCorpMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +176,9 @@
   <ItemGroup>
     <Compile Include="PagesCorp\PageAddRoom.xaml.cs">
       <DependentUpon>PageAddRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PagesCorp\PageChangeRoom.xaml.cs">
+      <DependentUpon>PageChangeRoom.xaml</DependentUpon>
     </Compile>
     <Compile Include="PagesCorp\PageCorpMain.xaml.cs">
       <DependentUpon>PageCorpMain.xaml</DependentUpon>
