@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniversCorps.DialogBox"
         mc:Ignorable="d"
-        Style="{StaticResource WinDialog}" Title="DialogAddCorp" Height="100" Width="500">
+        Style="{StaticResource WinDialog}" Title="DialogAddCorp" Height="100" Width="500" WindowStartupLocation="CenterScreen">
     
     <Grid>
 

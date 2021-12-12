@@ -22,7 +22,7 @@ namespace UniversCorps.DataBase
         public Nullable<double> LengthMeters { get; set; }
         public Nullable<int> IdPurporse { get; set; }
         public Nullable<int> IdTypeOfRoom { get; set; }
-        public int IdDivision { get; set; }
+        public Nullable<int> IdDivision { get; set; }
     
         public virtual Corps Corps { get; set; }
         public virtual Division Division { get; set; }

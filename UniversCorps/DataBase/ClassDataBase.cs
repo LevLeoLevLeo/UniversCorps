@@ -11,9 +11,15 @@ namespace UniversCorps.DataBase
 
         public static UniversClassFundEntities UniversClassFundEntities; //Сущность базы данных
 
-        public static Corps CurrentCurpus; //Выбранный корпус
+        /// <summary>
+        /// Выбранный корпус
+        /// </summary>
+        public static Corps CurrentCorpus;
 
-        public static UniClassFundCorps CurrentClass; //Выбранное помещение
+        /// <summary>
+        /// Выбранная комната
+        /// </summary>
+        public static UniClassFundCorps CurrentRoom; //Выбранное помещение
 
     }
 }

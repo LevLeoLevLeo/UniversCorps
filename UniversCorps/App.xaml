@@ -337,15 +337,16 @@
             <Setter Property="BorderThickness" Value="0 0 0 0"/>
             <Setter Property="BorderBrush" Value="#121212"/>
 
+        </Style>
 
+        <Style TargetType="DataGrid" x:Key="DGRooms" BasedOn="{StaticResource DGMain}">
 
-
-
-
-
-
-
-
+            <Setter Property="ColumnWidth" Value="*"/>
+            <Setter Property="Foreground" Value="#121212"/>
+            <Setter Property="CanUserResizeColumns" Value="True"/>
+            <Setter Property="CanUserSortColumns" Value="True"/>
+            
+            <Setter Property="HeadersVisibility" Value="Column"/>
 
         </Style>
         

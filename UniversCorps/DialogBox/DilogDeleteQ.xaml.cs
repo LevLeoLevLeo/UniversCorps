@@ -27,7 +27,7 @@ namespace UniversCorps.DialogBox
             
             InitializeComponent();
 
-            TxbDeleteText.Text = "Вы действительно хотите удалить корпус " + ClassDataBase.CurrentCurpus.Name + "?";
+            TxbDeleteText.Text = "Вы действительно хотите удалить корпус " + ClassDataBase.CurrentCorpus.Name + "?";
 
         }
 

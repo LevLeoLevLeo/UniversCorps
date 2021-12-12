@@ -102,7 +102,7 @@
     <Property Name="LengthMeters" Type="float" />
     <Property Name="IdPurporse" Type="int" />
     <Property Name="IdTypeOfRoom" Type="int" />
-    <Property Name="IdDivision" Type="int" Nullable="false" />
+    <Property Name="IdDivision" Type="int" />
   </EntityType>
   <Association Name="FK_Division_Department">
     <End Role="Department" Type="Self.Department" Multiplicity="1" />
@@ -177,7 +177,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UniClassFundCorps_Division">
-    <End Role="Division" Type="Self.Division" Multiplicity="1" />
+    <End Role="Division" Type="Self.Division" Multiplicity="0..1" />
     <End Role="UniClassFundCorps" Type="Self.UniClassFundCorps" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Division">

@@ -4,30 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="990cc42746534b4b8b2928aac2b7b48a" Name="Diagram1" ZoomLevel="113">
-        <EntityTypeShape EntityType="UniversClassFundModel.CaseName" Width="1.5" PointX="5.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversClassFundModel.Ceiling" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversClassFundModel.Corps" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversClassFundModel.Department" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversClassFundModel.Division" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversClassFundModel.Faculty" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversClassFundModel.Laboratory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversClassFundModel.Location" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversClassFundModel.LocHei" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversClassFundModel.Purporse" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversClassFundModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversClassFundModel.TypeOfRoom" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="UniversClassFundModel.UniClassFundCorps" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
-        <AssociationConnector Association="UniversClassFundModel.FK_LocHei_Ceiling" ManuallyRouted="false" />
-        <AssociationConnector Association="UniversClassFundModel.FK_UniClassFundCorps_Corps" ManuallyRouted="false" />
-        <AssociationConnector Association="UniversClassFundModel.FK_Division_Department" ManuallyRouted="false" />
-        <AssociationConnector Association="UniversClassFundModel.FK_Division_Faculty" ManuallyRouted="false" />
-        <AssociationConnector Association="UniversClassFundModel.FK_Division_Laboratory" ManuallyRouted="false" />
-        <AssociationConnector Association="UniversClassFundModel.FK_UniClassFundCorps_Division" ManuallyRouted="false" />
-        <AssociationConnector Association="UniversClassFundModel.FK_LocHei_Location" ManuallyRouted="false" />
-        <AssociationConnector Association="UniversClassFundModel.FK_UniClassFundCorps_LocHei" ManuallyRouted="false" />
-        <AssociationConnector Association="UniversClassFundModel.FK_UniClassFundCorps_Purporse" ManuallyRouted="false" />
-        <AssociationConnector Association="UniversClassFundModel.FK_UniClassFundCorps_TypeOfRoom" ManuallyRouted="false" />
+      <Diagram DiagramId="990cc42746534b4b8b2928aac2b7b48a" Name="Diagram1" ZoomLevel="52">
+        <EntityTypeShape EntityType="UniversClassFundModel.CaseName" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="UniversClassFundModel.Ceiling" Width="1.5" PointX="0.75" PointY="6.125" />
+        <EntityTypeShape EntityType="UniversClassFundModel.Corps" Width="1.5" PointX="3" PointY="5.25" />
+        <EntityTypeShape EntityType="UniversClassFundModel.Department" Width="1.5" PointX="0.75" PointY="12.25" />
+        <EntityTypeShape EntityType="UniversClassFundModel.Division" Width="1.5" PointX="3" PointY="14.125" />
+        <EntityTypeShape EntityType="UniversClassFundModel.Faculty" Width="1.5" PointX="0.75" PointY="14.625" />
+        <EntityTypeShape EntityType="UniversClassFundModel.Laboratory" Width="1.5" PointX="0.75" PointY="17" />
+        <EntityTypeShape EntityType="UniversClassFundModel.Location" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="UniversClassFundModel.LocHei" Width="1.5" PointX="3" PointY="1.75" />
+        <EntityTypeShape EntityType="UniversClassFundModel.Purporse" Width="1.5" PointX="3" PointY="9.875" />
+        <EntityTypeShape EntityType="UniversClassFundModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UniversClassFundModel.TypeOfRoom" Width="1.5" PointX="3" PointY="7.5" />
+        <EntityTypeShape EntityType="UniversClassFundModel.UniClassFundCorps" Width="1.5" PointX="5.25" PointY="1" />
+        <AssociationConnector Association="UniversClassFundModel.FK_LocHei_Ceiling" />
+        <AssociationConnector Association="UniversClassFundModel.FK_UniClassFundCorps_Corps" />
+        <AssociationConnector Association="UniversClassFundModel.FK_Division_Department" />
+        <AssociationConnector Association="UniversClassFundModel.FK_Division_Faculty" />
+        <AssociationConnector Association="UniversClassFundModel.FK_Division_Laboratory" />
+        <AssociationConnector Association="UniversClassFundModel.FK_UniClassFundCorps_Division" />
+        <AssociationConnector Association="UniversClassFundModel.FK_LocHei_Location" />
+        <AssociationConnector Association="UniversClassFundModel.FK_UniClassFundCorps_LocHei" />
+        <AssociationConnector Association="UniversClassFundModel.FK_UniClassFundCorps_Purporse" />
+        <AssociationConnector Association="UniversClassFundModel.FK_UniClassFundCorps_TypeOfRoom" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

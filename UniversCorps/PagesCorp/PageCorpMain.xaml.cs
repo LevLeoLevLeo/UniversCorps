@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UniversCorps.Class;
 using UniversCorps.DataBase;
 using UniversCorps.DialogBox;
 
@@ -60,7 +61,7 @@ namespace UniversCorps.PagesCorp
 
             {
 
-                    ClassDataBase.CurrentCurpus = (Corps)DGCorps.SelectedValue;
+                    ClassDataBase.CurrentCorpus = (Corps)DGCorps.SelectedValue;
 
                     DialogAddCorp dialogAddCorp = new DialogAddCorp();
                     dialogAddCorp.ShowDialog();
@@ -102,7 +103,7 @@ namespace UniversCorps.PagesCorp
 
                 {
 
-                    ClassDataBase.CurrentCurpus = (Corps)DGCorps.SelectedValue;
+                    ClassDataBase.CurrentCorpus = (Corps)DGCorps.SelectedValue;
 
                     DislogChangeCorpName dialogNameCh = new DislogChangeCorpName();
                     dialogNameCh.ShowDialog();
@@ -148,7 +149,7 @@ namespace UniversCorps.PagesCorp
 
                 {
 
-                    ClassDataBase.CurrentCurpus = (Corps)DGCorps.SelectedValue;
+                    ClassDataBase.CurrentCorpus = (Corps)DGCorps.SelectedValue;
                 
                     WinDeleteQ winDeleteQ = new WinDeleteQ();
                     SystemSounds.Beep.Play();
@@ -158,7 +159,7 @@ namespace UniversCorps.PagesCorp
 
                     {
 
-                        ClassDataBase.UniversClassFundEntities.Corps.Remove(ClassDataBase.CurrentCurpus);
+                        ClassDataBase.UniversClassFundEntities.Corps.Remove(ClassDataBase.CurrentCorpus);
                         ClassDataBase.UniversClassFundEntities.SaveChanges();
 
                         DGCorps.ItemsSource = ClassDataBase.UniversClassFundEntities.Corps.ToList();
@@ -180,6 +181,41 @@ namespace UniversCorps.PagesCorp
                 MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
+        }
+
+        /// <summary>
+        /// Переход на страницу с комнатами
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnChoice_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+
+            {
+
+                ClassDataBase.CurrentCorpus = (Corps)DGCorps.SelectedValue;
+
+                ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+            }
+
+        }
+
+        private void BtnInfo_Click(object sender, RoutedEventArgs e)
+        {
+
+
+
         }
     }
 }

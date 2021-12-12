@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище UniversClassFundModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище UniversClassFundModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CaseName">
           <Key>
             <PropertyRef Name="Id" />
@@ -107,7 +107,7 @@
           <Property Name="LengthMeters" Type="float" />
           <Property Name="IdPurporse" Type="int" />
           <Property Name="IdTypeOfRoom" Type="int" />
-          <Property Name="IdDivision" Type="int" Nullable="false" />
+          <Property Name="IdDivision" Type="int" />
         </EntityType>
         <Association Name="FK_Division_Department">
           <End Role="Department" Type="Self.Department" Multiplicity="1" />
@@ -182,7 +182,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UniClassFundCorps_Division">
-          <End Role="Division" Type="Self.Division" Multiplicity="1" />
+          <End Role="Division" Type="Self.Division" Multiplicity="0..1" />
           <End Role="UniClassFundCorps" Type="Self.UniClassFundCorps" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Division">
@@ -284,17 +284,71 @@
             <End Role="UniClassFundCorps" EntitySet="UniClassFundCorps" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UniversClassFundModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="UniversClassFundEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CaseName" EntityType="UniversClassFundModel.CaseName" />
+          <EntitySet Name="Ceiling" EntityType="UniversClassFundModel.Ceiling" />
+          <EntitySet Name="Corps" EntityType="UniversClassFundModel.Corps" />
+          <EntitySet Name="Department" EntityType="UniversClassFundModel.Department" />
+          <EntitySet Name="Division" EntityType="UniversClassFundModel.Division" />
+          <EntitySet Name="Faculty" EntityType="UniversClassFundModel.Faculty" />
+          <EntitySet Name="Laboratory" EntityType="UniversClassFundModel.Laboratory" />
+          <EntitySet Name="Location" EntityType="UniversClassFundModel.Location" />
+          <EntitySet Name="LocHei" EntityType="UniversClassFundModel.LocHei" />
+          <EntitySet Name="Purporse" EntityType="UniversClassFundModel.Purporse" />
+          <EntitySet Name="sysdiagrams" EntityType="UniversClassFundModel.sysdiagrams" />
+          <EntitySet Name="TypeOfRoom" EntityType="UniversClassFundModel.TypeOfRoom" />
+          <EntitySet Name="UniClassFundCorps" EntityType="UniversClassFundModel.UniClassFundCorps" />
+          <AssociationSet Name="FK_LocHei_Ceiling" Association="UniversClassFundModel.FK_LocHei_Ceiling">
+            <End Role="Ceiling" EntitySet="Ceiling" />
+            <End Role="LocHei" EntitySet="LocHei" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniClassFundCorps_Corps" Association="UniversClassFundModel.FK_UniClassFundCorps_Corps">
+            <End Role="Corps" EntitySet="Corps" />
+            <End Role="UniClassFundCorps" EntitySet="UniClassFundCorps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Division_Department" Association="UniversClassFundModel.FK_Division_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Division" EntitySet="Division" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Division_Faculty" Association="UniversClassFundModel.FK_Division_Faculty">
+            <End Role="Faculty" EntitySet="Faculty" />
+            <End Role="Division" EntitySet="Division" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Division_Laboratory" Association="UniversClassFundModel.FK_Division_Laboratory">
+            <End Role="Laboratory" EntitySet="Laboratory" />
+            <End Role="Division" EntitySet="Division" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniClassFundCorps_Division" Association="UniversClassFundModel.FK_UniClassFundCorps_Division">
+            <End Role="Division" EntitySet="Division" />
+            <End Role="UniClassFundCorps" EntitySet="UniClassFundCorps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocHei_Location" Association="UniversClassFundModel.FK_LocHei_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="LocHei" EntitySet="LocHei" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniClassFundCorps_LocHei" Association="UniversClassFundModel.FK_UniClassFundCorps_LocHei">
+            <End Role="LocHei" EntitySet="LocHei" />
+            <End Role="UniClassFundCorps" EntitySet="UniClassFundCorps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniClassFundCorps_Purporse" Association="UniversClassFundModel.FK_UniClassFundCorps_Purporse">
+            <End Role="Purporse" EntitySet="Purporse" />
+            <End Role="UniClassFundCorps" EntitySet="UniClassFundCorps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UniClassFundCorps_TypeOfRoom" Association="UniversClassFundModel.FK_UniClassFundCorps_TypeOfRoom">
+            <End Role="TypeOfRoom" EntitySet="TypeOfRoom" />
+            <End Role="UniClassFundCorps" EntitySet="UniClassFundCorps" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="CaseName">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Ceiling">
           <Key>
@@ -302,23 +356,23 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HeightMeters" Type="Double" Nullable="false" />
-          <NavigationProperty Name="LocHei" Relationship="Self.FK_LocHei_Ceiling" FromRole="Ceiling" ToRole="LocHei" />
+          <NavigationProperty Name="LocHei" Relationship="UniversClassFundModel.FK_LocHei_Ceiling" FromRole="Ceiling" ToRole="LocHei" />
         </EntityType>
         <EntityType Name="Corps">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="UniClassFundCorps" Relationship="Self.FK_UniClassFundCorps_Corps" FromRole="Corps" ToRole="UniClassFundCorps" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UniClassFundCorps" Relationship="UniversClassFundModel.FK_UniClassFundCorps_Corps" FromRole="Corps" ToRole="UniClassFundCorps" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Division" Relationship="Self.FK_Division_Department" FromRole="Department" ToRole="Division" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Division" Relationship="UniversClassFundModel.FK_Division_Department" FromRole="Department" ToRole="Division" />
         </EntityType>
         <EntityType Name="Division">
           <Key>
@@ -328,34 +382,34 @@
           <Property Name="IdDepartment" Type="Int32" Nullable="false" />
           <Property Name="IdFaculty" Type="Int32" />
           <Property Name="IdLaboratory" Type="Int32" />
-          <NavigationProperty Name="Department" Relationship="Self.FK_Division_Department" FromRole="Division" ToRole="Department" />
-          <NavigationProperty Name="Faculty" Relationship="Self.FK_Division_Faculty" FromRole="Division" ToRole="Faculty" />
-          <NavigationProperty Name="Laboratory" Relationship="Self.FK_Division_Laboratory" FromRole="Division" ToRole="Laboratory" />
-          <NavigationProperty Name="UniClassFundCorps" Relationship="Self.FK_UniClassFundCorps_Division" FromRole="Division" ToRole="UniClassFundCorps" />
+          <NavigationProperty Name="Department" Relationship="UniversClassFundModel.FK_Division_Department" FromRole="Division" ToRole="Department" />
+          <NavigationProperty Name="Faculty" Relationship="UniversClassFundModel.FK_Division_Faculty" FromRole="Division" ToRole="Faculty" />
+          <NavigationProperty Name="Laboratory" Relationship="UniversClassFundModel.FK_Division_Laboratory" FromRole="Division" ToRole="Laboratory" />
+          <NavigationProperty Name="UniClassFundCorps" Relationship="UniversClassFundModel.FK_UniClassFundCorps_Division" FromRole="Division" ToRole="UniClassFundCorps" />
         </EntityType>
         <EntityType Name="Faculty">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Division" Relationship="Self.FK_Division_Faculty" FromRole="Faculty" ToRole="Division" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Division" Relationship="UniversClassFundModel.FK_Division_Faculty" FromRole="Faculty" ToRole="Division" />
         </EntityType>
         <EntityType Name="Laboratory">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Division" Relationship="Self.FK_Division_Laboratory" FromRole="Laboratory" ToRole="Division" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Division" Relationship="UniversClassFundModel.FK_Division_Laboratory" FromRole="Laboratory" ToRole="Division" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="LocHei" Relationship="Self.FK_LocHei_Location" FromRole="Location" ToRole="LocHei" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LocHei" Relationship="UniversClassFundModel.FK_LocHei_Location" FromRole="Location" ToRole="LocHei" />
         </EntityType>
         <EntityType Name="LocHei">
           <Key>
@@ -364,23 +418,23 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdLocation" Type="Int32" Nullable="false" />
           <Property Name="IdCeiling" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Ceiling" Relationship="Self.FK_LocHei_Ceiling" FromRole="LocHei" ToRole="Ceiling" />
-          <NavigationProperty Name="Location" Relationship="Self.FK_LocHei_Location" FromRole="LocHei" ToRole="Location" />
-          <NavigationProperty Name="UniClassFundCorps" Relationship="Self.FK_UniClassFundCorps_LocHei" FromRole="LocHei" ToRole="UniClassFundCorps" />
+          <NavigationProperty Name="Ceiling" Relationship="UniversClassFundModel.FK_LocHei_Ceiling" FromRole="LocHei" ToRole="Ceiling" />
+          <NavigationProperty Name="Location" Relationship="UniversClassFundModel.FK_LocHei_Location" FromRole="LocHei" ToRole="Location" />
+          <NavigationProperty Name="UniClassFundCorps" Relationship="UniversClassFundModel.FK_UniClassFundCorps_LocHei" FromRole="LocHei" ToRole="UniClassFundCorps" />
         </EntityType>
         <EntityType Name="Purporse">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="UniClassFundCorps" Relationship="Self.FK_UniClassFundCorps_Purporse" FromRole="Purporse" ToRole="UniClassFundCorps" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UniClassFundCorps" Relationship="UniversClassFundModel.FK_UniClassFundCorps_Purporse" FromRole="Purporse" ToRole="UniClassFundCorps" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -391,8 +445,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="UniClassFundCorps" Relationship="Self.FK_UniClassFundCorps_TypeOfRoom" FromRole="TypeOfRoom" ToRole="UniClassFundCorps" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UniClassFundCorps" Relationship="UniversClassFundModel.FK_UniClassFundCorps_TypeOfRoom" FromRole="TypeOfRoom" ToRole="UniClassFundCorps" />
         </EntityType>
         <EntityType Name="UniClassFundCorps">
           <Key>
@@ -406,16 +460,16 @@
           <Property Name="LengthMeters" Type="Double" />
           <Property Name="IdPurporse" Type="Int32" />
           <Property Name="IdTypeOfRoom" Type="Int32" />
-          <Property Name="IdDivision" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Corps" Relationship="Self.FK_UniClassFundCorps_Corps" FromRole="UniClassFundCorps" ToRole="Corps" />
-          <NavigationProperty Name="Division" Relationship="Self.FK_UniClassFundCorps_Division" FromRole="UniClassFundCorps" ToRole="Division" />
-          <NavigationProperty Name="LocHei" Relationship="Self.FK_UniClassFundCorps_LocHei" FromRole="UniClassFundCorps" ToRole="LocHei" />
-          <NavigationProperty Name="Purporse" Relationship="Self.FK_UniClassFundCorps_Purporse" FromRole="UniClassFundCorps" ToRole="Purporse" />
-          <NavigationProperty Name="TypeOfRoom" Relationship="Self.FK_UniClassFundCorps_TypeOfRoom" FromRole="UniClassFundCorps" ToRole="TypeOfRoom" />
+          <Property Name="IdDivision" Type="Int32" />
+          <NavigationProperty Name="Corps" Relationship="UniversClassFundModel.FK_UniClassFundCorps_Corps" FromRole="UniClassFundCorps" ToRole="Corps" />
+          <NavigationProperty Name="Division" Relationship="UniversClassFundModel.FK_UniClassFundCorps_Division" FromRole="UniClassFundCorps" ToRole="Division" />
+          <NavigationProperty Name="LocHei" Relationship="UniversClassFundModel.FK_UniClassFundCorps_LocHei" FromRole="UniClassFundCorps" ToRole="LocHei" />
+          <NavigationProperty Name="Purporse" Relationship="UniversClassFundModel.FK_UniClassFundCorps_Purporse" FromRole="UniClassFundCorps" ToRole="Purporse" />
+          <NavigationProperty Name="TypeOfRoom" Relationship="UniversClassFundModel.FK_UniClassFundCorps_TypeOfRoom" FromRole="UniClassFundCorps" ToRole="TypeOfRoom" />
         </EntityType>
         <Association Name="FK_LocHei_Ceiling">
-          <End Role="Ceiling" Type="Self.Ceiling" Multiplicity="1" />
-          <End Role="LocHei" Type="Self.LocHei" Multiplicity="*" />
+          <End Type="UniversClassFundModel.Ceiling" Role="Ceiling" Multiplicity="1" />
+          <End Type="UniversClassFundModel.LocHei" Role="LocHei" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Ceiling">
               <PropertyRef Name="Id" />
@@ -426,8 +480,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UniClassFundCorps_Corps">
-          <End Role="Corps" Type="Self.Corps" Multiplicity="1" />
-          <End Role="UniClassFundCorps" Type="Self.UniClassFundCorps" Multiplicity="*" />
+          <End Type="UniversClassFundModel.Corps" Role="Corps" Multiplicity="1" />
+          <End Type="UniversClassFundModel.UniClassFundCorps" Role="UniClassFundCorps" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Corps">
               <PropertyRef Name="Id" />
@@ -438,8 +492,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Division_Department">
-          <End Role="Department" Type="Self.Department" Multiplicity="1" />
-          <End Role="Division" Type="Self.Division" Multiplicity="*" />
+          <End Type="UniversClassFundModel.Department" Role="Department" Multiplicity="1" />
+          <End Type="UniversClassFundModel.Division" Role="Division" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Department">
               <PropertyRef Name="Id" />
@@ -450,8 +504,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Division_Faculty">
-          <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
-          <End Role="Division" Type="Self.Division" Multiplicity="*" />
+          <End Type="UniversClassFundModel.Faculty" Role="Faculty" Multiplicity="0..1" />
+          <End Type="UniversClassFundModel.Division" Role="Division" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Faculty">
               <PropertyRef Name="Id" />
@@ -462,8 +516,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Division_Laboratory">
-          <End Role="Laboratory" Type="Self.Laboratory" Multiplicity="0..1" />
-          <End Role="Division" Type="Self.Division" Multiplicity="*" />
+          <End Type="UniversClassFundModel.Laboratory" Role="Laboratory" Multiplicity="0..1" />
+          <End Type="UniversClassFundModel.Division" Role="Division" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Laboratory">
               <PropertyRef Name="Id" />
@@ -474,8 +528,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UniClassFundCorps_Division">
-          <End Role="Division" Type="Self.Division" Multiplicity="1" />
-          <End Role="UniClassFundCorps" Type="Self.UniClassFundCorps" Multiplicity="*" />
+          <End Type="UniversClassFundModel.Division" Role="Division" Multiplicity="0..1" />
+          <End Type="UniversClassFundModel.UniClassFundCorps" Role="UniClassFundCorps" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Division">
               <PropertyRef Name="Id" />
@@ -486,8 +540,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LocHei_Location">
-          <End Role="Location" Type="Self.Location" Multiplicity="1" />
-          <End Role="LocHei" Type="Self.LocHei" Multiplicity="*" />
+          <End Type="UniversClassFundModel.Location" Role="Location" Multiplicity="1" />
+          <End Type="UniversClassFundModel.LocHei" Role="LocHei" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Location">
               <PropertyRef Name="Id" />
@@ -498,8 +552,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UniClassFundCorps_LocHei">
-          <End Role="LocHei" Type="Self.LocHei" Multiplicity="0..1" />
-          <End Role="UniClassFundCorps" Type="Self.UniClassFundCorps" Multiplicity="*" />
+          <End Type="UniversClassFundModel.LocHei" Role="LocHei" Multiplicity="0..1" />
+          <End Type="UniversClassFundModel.UniClassFundCorps" Role="UniClassFundCorps" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LocHei">
               <PropertyRef Name="Id" />
@@ -510,8 +564,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UniClassFundCorps_Purporse">
-          <End Role="Purporse" Type="Self.Purporse" Multiplicity="0..1" />
-          <End Role="UniClassFundCorps" Type="Self.UniClassFundCorps" Multiplicity="*" />
+          <End Type="UniversClassFundModel.Purporse" Role="Purporse" Multiplicity="0..1" />
+          <End Type="UniversClassFundModel.UniClassFundCorps" Role="UniClassFundCorps" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Purporse">
               <PropertyRef Name="Id" />
@@ -522,8 +576,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UniClassFundCorps_TypeOfRoom">
-          <End Role="TypeOfRoom" Type="Self.TypeOfRoom" Multiplicity="0..1" />
-          <End Role="UniClassFundCorps" Type="Self.UniClassFundCorps" Multiplicity="*" />
+          <End Type="UniversClassFundModel.TypeOfRoom" Role="TypeOfRoom" Multiplicity="0..1" />
+          <End Type="UniversClassFundModel.UniClassFundCorps" Role="UniClassFundCorps" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeOfRoom">
               <PropertyRef Name="Id" />
@@ -533,61 +587,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="UniversClassFundEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CaseName" EntityType="Self.CaseName" />
-          <EntitySet Name="Ceiling" EntityType="Self.Ceiling" />
-          <EntitySet Name="Corps" EntityType="Self.Corps" />
-          <EntitySet Name="Department" EntityType="Self.Department" />
-          <EntitySet Name="Division" EntityType="Self.Division" />
-          <EntitySet Name="Faculty" EntityType="Self.Faculty" />
-          <EntitySet Name="Laboratory" EntityType="Self.Laboratory" />
-          <EntitySet Name="Location" EntityType="Self.Location" />
-          <EntitySet Name="LocHei" EntityType="Self.LocHei" />
-          <EntitySet Name="Purporse" EntityType="Self.Purporse" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="TypeOfRoom" EntityType="Self.TypeOfRoom" />
-          <EntitySet Name="UniClassFundCorps" EntityType="Self.UniClassFundCorps" />
-          <AssociationSet Name="FK_LocHei_Ceiling" Association="Self.FK_LocHei_Ceiling">
-            <End Role="Ceiling" EntitySet="Ceiling" />
-            <End Role="LocHei" EntitySet="LocHei" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UniClassFundCorps_Corps" Association="Self.FK_UniClassFundCorps_Corps">
-            <End Role="Corps" EntitySet="Corps" />
-            <End Role="UniClassFundCorps" EntitySet="UniClassFundCorps" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Division_Department" Association="Self.FK_Division_Department">
-            <End Role="Department" EntitySet="Department" />
-            <End Role="Division" EntitySet="Division" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Division_Faculty" Association="Self.FK_Division_Faculty">
-            <End Role="Faculty" EntitySet="Faculty" />
-            <End Role="Division" EntitySet="Division" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Division_Laboratory" Association="Self.FK_Division_Laboratory">
-            <End Role="Laboratory" EntitySet="Laboratory" />
-            <End Role="Division" EntitySet="Division" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UniClassFundCorps_Division" Association="Self.FK_UniClassFundCorps_Division">
-            <End Role="Division" EntitySet="Division" />
-            <End Role="UniClassFundCorps" EntitySet="UniClassFundCorps" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LocHei_Location" Association="Self.FK_LocHei_Location">
-            <End Role="Location" EntitySet="Location" />
-            <End Role="LocHei" EntitySet="LocHei" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UniClassFundCorps_LocHei" Association="Self.FK_UniClassFundCorps_LocHei">
-            <End Role="LocHei" EntitySet="LocHei" />
-            <End Role="UniClassFundCorps" EntitySet="UniClassFundCorps" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UniClassFundCorps_Purporse" Association="Self.FK_UniClassFundCorps_Purporse">
-            <End Role="Purporse" EntitySet="Purporse" />
-            <End Role="UniClassFundCorps" EntitySet="UniClassFundCorps" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UniClassFundCorps_TypeOfRoom" Association="Self.FK_UniClassFundCorps_TypeOfRoom">
-            <End Role="TypeOfRoom" EntitySet="TypeOfRoom" />
-            <End Role="UniClassFundCorps" EntitySet="UniClassFundCorps" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -597,117 +596,117 @@
           <EntitySetMapping Name="CaseName">
             <EntityTypeMapping TypeName="UniversClassFundModel.CaseName">
               <MappingFragment StoreEntitySet="CaseName">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ceiling">
             <EntityTypeMapping TypeName="UniversClassFundModel.Ceiling">
               <MappingFragment StoreEntitySet="Ceiling">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="HeightMeters" ColumnName="HeightMeters" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Corps">
             <EntityTypeMapping TypeName="UniversClassFundModel.Corps">
               <MappingFragment StoreEntitySet="Corps">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Department">
             <EntityTypeMapping TypeName="UniversClassFundModel.Department">
               <MappingFragment StoreEntitySet="Department">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Division">
             <EntityTypeMapping TypeName="UniversClassFundModel.Division">
               <MappingFragment StoreEntitySet="Division">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdDepartment" ColumnName="IdDepartment" />
-                <ScalarProperty Name="IdFaculty" ColumnName="IdFaculty" />
                 <ScalarProperty Name="IdLaboratory" ColumnName="IdLaboratory" />
+                <ScalarProperty Name="IdFaculty" ColumnName="IdFaculty" />
+                <ScalarProperty Name="IdDepartment" ColumnName="IdDepartment" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Faculty">
             <EntityTypeMapping TypeName="UniversClassFundModel.Faculty">
               <MappingFragment StoreEntitySet="Faculty">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Laboratory">
             <EntityTypeMapping TypeName="UniversClassFundModel.Laboratory">
               <MappingFragment StoreEntitySet="Laboratory">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Location">
             <EntityTypeMapping TypeName="UniversClassFundModel.Location">
               <MappingFragment StoreEntitySet="Location">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LocHei">
             <EntityTypeMapping TypeName="UniversClassFundModel.LocHei">
               <MappingFragment StoreEntitySet="LocHei">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdLocation" ColumnName="IdLocation" />
                 <ScalarProperty Name="IdCeiling" ColumnName="IdCeiling" />
+                <ScalarProperty Name="IdLocation" ColumnName="IdLocation" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Purporse">
             <EntityTypeMapping TypeName="UniversClassFundModel.Purporse">
               <MappingFragment StoreEntitySet="Purporse">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="UniversClassFundModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeOfRoom">
             <EntityTypeMapping TypeName="UniversClassFundModel.TypeOfRoom">
               <MappingFragment StoreEntitySet="TypeOfRoom">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UniClassFundCorps">
             <EntityTypeMapping TypeName="UniversClassFundModel.UniClassFundCorps">
               <MappingFragment StoreEntitySet="UniClassFundCorps">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdCorps" ColumnName="IdCorps" />
-                <ScalarProperty Name="Room" ColumnName="Room" />
-                <ScalarProperty Name="IdLocHei" ColumnName="IdLocHei" />
-                <ScalarProperty Name="WidthMeters" ColumnName="WidthMeters" />
-                <ScalarProperty Name="LengthMeters" ColumnName="LengthMeters" />
-                <ScalarProperty Name="IdPurporse" ColumnName="IdPurporse" />
-                <ScalarProperty Name="IdTypeOfRoom" ColumnName="IdTypeOfRoom" />
                 <ScalarProperty Name="IdDivision" ColumnName="IdDivision" />
+                <ScalarProperty Name="IdTypeOfRoom" ColumnName="IdTypeOfRoom" />
+                <ScalarProperty Name="IdPurporse" ColumnName="IdPurporse" />
+                <ScalarProperty Name="LengthMeters" ColumnName="LengthMeters" />
+                <ScalarProperty Name="WidthMeters" ColumnName="WidthMeters" />
+                <ScalarProperty Name="IdLocHei" ColumnName="IdLocHei" />
+                <ScalarProperty Name="Room" ColumnName="Room" />
+                <ScalarProperty Name="IdCorps" ColumnName="IdCorps" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

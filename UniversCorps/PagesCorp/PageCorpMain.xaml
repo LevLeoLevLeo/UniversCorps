@@ -37,6 +37,13 @@
 
         </StackPanel>
 
+        <StackPanel Style="{StaticResource StpCenterVert}" HorizontalAlignment="Right" Margin="0 0 10 0">
+
+            <Button Name="BtnChoice" Style="{StaticResource BtnMain}" Content="Выбрать" Click="BtnChoice_Click"/>
+            <Button Name="BtnInfo" Style="{StaticResource BtnMain}" Content="Информация" Margin="0 10 0 0" Click="BtnInfo_Click"/>
+
+        </StackPanel>
+
     </Grid>
     
 </Page>

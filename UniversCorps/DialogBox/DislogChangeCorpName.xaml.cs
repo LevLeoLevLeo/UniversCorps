@@ -26,7 +26,7 @@ namespace UniversCorps.DialogBox
         
             InitializeComponent();
 
-            TxbCorrectName.Text = ClassDataBase.CurrentCurpus.Name;
+            TxbCorrectName.Text = ClassDataBase.CurrentCorpus.Name;
         
         }
 
@@ -59,7 +59,7 @@ namespace UniversCorps.DialogBox
 
                         this.DialogResult = true;
 
-                        ClassDataBase.CurrentCurpus.Name = TxbNewName.Text;
+                        ClassDataBase.CurrentCorpus.Name = TxbNewName.Text;
                         ClassDataBase.UniversClassFundEntities.SaveChanges();
 
                     }

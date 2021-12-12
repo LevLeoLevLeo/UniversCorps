@@ -4,117 +4,117 @@
     <EntitySetMapping Name="CaseName">
       <EntityTypeMapping TypeName="UniversClassFundModel.CaseName">
         <MappingFragment StoreEntitySet="CaseName">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Ceiling">
       <EntityTypeMapping TypeName="UniversClassFundModel.Ceiling">
         <MappingFragment StoreEntitySet="Ceiling">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="HeightMeters" ColumnName="HeightMeters" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Corps">
       <EntityTypeMapping TypeName="UniversClassFundModel.Corps">
         <MappingFragment StoreEntitySet="Corps">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Department">
       <EntityTypeMapping TypeName="UniversClassFundModel.Department">
         <MappingFragment StoreEntitySet="Department">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Division">
       <EntityTypeMapping TypeName="UniversClassFundModel.Division">
         <MappingFragment StoreEntitySet="Division">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdDepartment" ColumnName="IdDepartment" />
-          <ScalarProperty Name="IdFaculty" ColumnName="IdFaculty" />
           <ScalarProperty Name="IdLaboratory" ColumnName="IdLaboratory" />
+          <ScalarProperty Name="IdFaculty" ColumnName="IdFaculty" />
+          <ScalarProperty Name="IdDepartment" ColumnName="IdDepartment" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Faculty">
       <EntityTypeMapping TypeName="UniversClassFundModel.Faculty">
         <MappingFragment StoreEntitySet="Faculty">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Laboratory">
       <EntityTypeMapping TypeName="UniversClassFundModel.Laboratory">
         <MappingFragment StoreEntitySet="Laboratory">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Location">
       <EntityTypeMapping TypeName="UniversClassFundModel.Location">
         <MappingFragment StoreEntitySet="Location">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LocHei">
       <EntityTypeMapping TypeName="UniversClassFundModel.LocHei">
         <MappingFragment StoreEntitySet="LocHei">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdLocation" ColumnName="IdLocation" />
           <ScalarProperty Name="IdCeiling" ColumnName="IdCeiling" />
+          <ScalarProperty Name="IdLocation" ColumnName="IdLocation" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Purporse">
       <EntityTypeMapping TypeName="UniversClassFundModel.Purporse">
         <MappingFragment StoreEntitySet="Purporse">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="UniversClassFundModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TypeOfRoom">
       <EntityTypeMapping TypeName="UniversClassFundModel.TypeOfRoom">
         <MappingFragment StoreEntitySet="TypeOfRoom">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UniClassFundCorps">
       <EntityTypeMapping TypeName="UniversClassFundModel.UniClassFundCorps">
         <MappingFragment StoreEntitySet="UniClassFundCorps">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdCorps" ColumnName="IdCorps" />
-          <ScalarProperty Name="Room" ColumnName="Room" />
-          <ScalarProperty Name="IdLocHei" ColumnName="IdLocHei" />
-          <ScalarProperty Name="WidthMeters" ColumnName="WidthMeters" />
-          <ScalarProperty Name="LengthMeters" ColumnName="LengthMeters" />
-          <ScalarProperty Name="IdPurporse" ColumnName="IdPurporse" />
-          <ScalarProperty Name="IdTypeOfRoom" ColumnName="IdTypeOfRoom" />
           <ScalarProperty Name="IdDivision" ColumnName="IdDivision" />
+          <ScalarProperty Name="IdTypeOfRoom" ColumnName="IdTypeOfRoom" />
+          <ScalarProperty Name="IdPurporse" ColumnName="IdPurporse" />
+          <ScalarProperty Name="LengthMeters" ColumnName="LengthMeters" />
+          <ScalarProperty Name="WidthMeters" ColumnName="WidthMeters" />
+          <ScalarProperty Name="IdLocHei" ColumnName="IdLocHei" />
+          <ScalarProperty Name="Room" ColumnName="Room" />
+          <ScalarProperty Name="IdCorps" ColumnName="IdCorps" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
