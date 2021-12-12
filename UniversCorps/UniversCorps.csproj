@@ -168,6 +168,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PagesCorp\PageInformationRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PagesCorp\PageRoom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -182,6 +186,9 @@
     </Compile>
     <Compile Include="PagesCorp\PageCorpMain.xaml.cs">
       <DependentUpon>PageCorpMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PagesCorp\PageInformationRoom.xaml.cs">
+      <DependentUpon>PageInformationRoom.xaml</DependentUpon>
     </Compile>
     <Compile Include="PagesCorp\PageRoom.xaml.cs">
       <DependentUpon>PageRoom.xaml</DependentUpon>

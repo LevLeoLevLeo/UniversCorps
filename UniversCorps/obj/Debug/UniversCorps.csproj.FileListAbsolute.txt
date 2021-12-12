@@ -79,3 +79,5 @@ C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageAddRoom
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageAddRoom.baml
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageChangeRoom.g.cs
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageChangeRoom.baml
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageInformationRoom.g.cs
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageInformationRoom.baml

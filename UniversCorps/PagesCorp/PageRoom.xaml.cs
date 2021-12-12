@@ -93,6 +93,11 @@ namespace UniversCorps.PagesCorp
 
         }
 
+        /// <summary>
+        /// Кнопка удаления кабинета
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnDeleteRoom_Click(object sender, RoutedEventArgs e)
         
         {
@@ -140,14 +145,47 @@ namespace UniversCorps.PagesCorp
 
         }
 
+        /// <summary>
+        /// Переход к информации о кабинете
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnInfoRoom_Click(object sender, RoutedEventArgs e)
        
         {
 
+            try
 
+            {
+
+                if (DGFund.SelectedValue != null)
+
+                {
+
+                    ClassDataBase.CurrentRoom = (UniClassFundCorps)DGFund.SelectedValue;
+                    ClassNavigate.ClassFrmMain.Navigate(new PageInformationRoom());
+
+                }
+
+                else MessageBox.Show("Для просмотра информации выберите корпус", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
         }
 
+        /// <summary>
+        /// Кнопка назад
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         
         {
