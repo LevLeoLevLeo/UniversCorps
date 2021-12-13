@@ -27,17 +27,32 @@ namespace UniversCorps.PagesCorp
             
             InitializeComponent();
 
-            TxbRoomNumber.Text = ClassDataBase.CurrentRoom.Room.ToString();
-            TxbLocation.Text = ClassDataBase.CurrentRoom.LocHei.Location.Name;
-            TxbHeight.Text = ClassDataBase.CurrentRoom.LocHei.Ceiling.HeightMeters.ToString();
-            TxbWidth.Text = ClassDataBase.CurrentRoom.WidthMeters.ToString();
-            TxbLenght.Text = ClassDataBase.CurrentRoom.LengthMeters.ToString();
-            TxbArea.Text = Convert.ToString(ClassDataBase.CurrentRoom.WidthMeters * ClassDataBase.CurrentRoom.LengthMeters);
-            TxbVolume.Text = Convert.ToString(ClassDataBase.CurrentRoom.WidthMeters * ClassDataBase.CurrentRoom.LengthMeters *
-                ClassDataBase.CurrentRoom.LocHei.Ceiling.HeightMeters);
-            TxbPurporse.Text = ClassDataBase.CurrentRoom.Purporse.Name;
-            TxbTypeRoom.Text = ClassDataBase.CurrentRoom.TypeOfRoom.Name;
-        
+            try
+
+            {
+
+                TxbRoomNumber.Text = ClassDataBase.CurrentRoom.Room.ToString();
+                TxbLocation.Text = ClassDataBase.CurrentRoom.LocHei.Location.Name;
+                TxbHeight.Text = ClassDataBase.CurrentRoom.LocHei.Ceiling.HeightMeters.ToString();
+                TxbWidth.Text = ClassDataBase.CurrentRoom.WidthMeters.ToString();
+                TxbLenght.Text = ClassDataBase.CurrentRoom.LengthMeters.ToString();
+                TxbArea.Text = Convert.ToString(ClassDataBase.CurrentRoom.WidthMeters * ClassDataBase.CurrentRoom.LengthMeters);
+                TxbVolume.Text = Convert.ToString(ClassDataBase.CurrentRoom.WidthMeters * ClassDataBase.CurrentRoom.LengthMeters *
+                    ClassDataBase.CurrentRoom.LocHei.Ceiling.HeightMeters);
+                TxbPurporse.Text = ClassDataBase.CurrentRoom.Purporse.Name;
+                TxbTypeRoom.Text = ClassDataBase.CurrentRoom.TypeOfRoom.Name;
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
+
+            }
+
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
