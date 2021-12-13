@@ -105,25 +105,6 @@ namespace UniversCorps.PagesCorp
 
             {
 
-                try
-
-                {
-
-                    Convert.ToInt32(TxbRoomNumber.Text);
-                    float.Parse(TxbWidth.Text, CultureInfo.InvariantCulture.NumberFormat);
-                    float.Parse(TxbLenght.Text, CultureInfo.InvariantCulture.NumberFormat);
-
-                }
-
-                catch (Exception)
-
-                {
-
-                    MessageBox.Show("В поля допускается ввод только целочисленных и десятичных чисел",
-                        "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
-
-                }
-
                 if (string.IsNullOrWhiteSpace(TxbRoomNumber.Text) || string.IsNullOrWhiteSpace(TxbWidth.Text) || string.IsNullOrWhiteSpace(TxbLenght.Text)
                     || CmdLocal.SelectedItem == null || CmdHeight.SelectedItem == null || CmdPurporseRoom.SelectedItem == null ||
                     CmdTypeRoom.SelectedItem == null)
@@ -137,6 +118,27 @@ namespace UniversCorps.PagesCorp
                 else
 
                 {
+
+                    try
+
+                    {
+
+                        Convert.ToInt32(TxbRoomNumber.Text);
+                        float.Parse(TxbWidth.Text, CultureInfo.InvariantCulture.NumberFormat);
+                        float.Parse(TxbLenght.Text, CultureInfo.InvariantCulture.NumberFormat);
+
+                    }
+
+                    catch (Exception)
+
+                    {
+
+                        MessageBox.Show("В поля допускается ввод только целочисленных и десятичных чисел",
+                        "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                        return;
+
+                    }
 
                     int y = Convert.ToInt32(TxbRoomNumber.Text);
 
@@ -174,10 +176,9 @@ namespace UniversCorps.PagesCorp
                         ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
 
                     }
-
                 }
             }
-            
+
             catch (Exception ex)
 
             {

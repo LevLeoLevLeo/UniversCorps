@@ -24,7 +24,7 @@ namespace UniversCorps.PagesCorp
     public partial class PageChangeRoom : Page
     {
         public PageChangeRoom()
-        
+
         {
 
             try
@@ -89,31 +89,12 @@ namespace UniversCorps.PagesCorp
         }
 
         private void BtnChangeRoom_Click(object sender, RoutedEventArgs e)
-        
+
         {
 
             try
 
             {
-
-                try
-
-                {
-
-                    Convert.ToInt32(TxbRoomNumber.Text);
-                    float.Parse(TxbWidth.Text, CultureInfo.InvariantCulture.NumberFormat);
-                    float.Parse(TxbLenght.Text, CultureInfo.InvariantCulture.NumberFormat);
-
-                }
-
-                catch (Exception)
-
-                {
-
-                    MessageBox.Show("В поля допускается ввод только целочисленных и десятичных чисел",
-                        "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
-
-                }
 
                 if (string.IsNullOrWhiteSpace(TxbRoomNumber.Text) || string.IsNullOrWhiteSpace(TxbWidth.Text) || string.IsNullOrWhiteSpace(TxbLenght.Text)
                     || CmdLocal.SelectedItem == null || CmdHeight.SelectedItem == null || CmdPurporseRoom.SelectedItem == null ||
@@ -128,38 +109,58 @@ namespace UniversCorps.PagesCorp
                 else
 
                 {
-
-                    int y = Convert.ToInt32(TxbRoomNumber.Text);
-
-                    var roomNumber = ClassDataBase.UniversClassFundEntities.UniClassFundCorps.Where(x => x.IdCorps == ClassDataBase.CurrentCorpus.Id).FirstOrDefault(x => x.Room == y);
-
-                    if (roomNumber != null)
+                        
+                    try
 
                     {
 
-                        MessageBox.Show("Данная комната уже имеется в базе данных", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        TxbRoomNumber.Text = null;
+                        Convert.ToInt32(TxbRoomNumber.Text);
+                        float.Parse(TxbWidth.Text, CultureInfo.InvariantCulture.NumberFormat);
+                        float.Parse(TxbLenght.Text, CultureInfo.InvariantCulture.NumberFormat);
 
                     }
 
-                    else
+                    catch (Exception)
 
                     {
 
-                        ClassDataBase.CurrentRoom.Room = Convert.ToInt32(TxbRoomNumber.Text);
-                        ClassDataBase.CurrentRoom.IdLocHei = Convert.ToInt32(CmdLocal.SelectedValue);
-                        ClassDataBase.CurrentRoom.WidthMeters = float.Parse(TxbWidth.Text, CultureInfo.InvariantCulture.NumberFormat);
-                        ClassDataBase.CurrentRoom.LengthMeters = float.Parse(TxbLenght.Text, CultureInfo.InvariantCulture.NumberFormat);
-                        ClassDataBase.CurrentRoom.IdPurporse = Convert.ToInt32(CmdPurporseRoom.SelectedValue);
-                        ClassDataBase.CurrentRoom.IdTypeOfRoom = Convert.ToInt32(CmdTypeRoom.SelectedValue);
+                        MessageBox.Show("В поля допускается ввод только целочисленных и десятичных чисел",
+                        "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-                        ClassDataBase.UniversClassFundEntities.SaveChanges();
-                        ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
+                        return;
 
                     }
 
+                        int y = Convert.ToInt32(TxbRoomNumber.Text);
+
+                        var roomNumber = ClassDataBase.UniversClassFundEntities.UniClassFundCorps.Where(x => x.IdCorps == ClassDataBase.CurrentCorpus.Id).FirstOrDefault(x => x.Room == y);
+
+                        if (y != ClassDataBase.CurrentRoom.Room && roomNumber != null)
+
+                        {
+
+                            MessageBox.Show("Данная комната уже имеется в базе данных", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            TxbRoomNumber.Text = null;
+
+                        }
+
+                        else
+
+                        {
+
+                            ClassDataBase.CurrentRoom.Room = Convert.ToInt32(TxbRoomNumber.Text);
+                            ClassDataBase.CurrentRoom.IdLocHei = Convert.ToInt32(CmdLocal.SelectedValue);
+                            ClassDataBase.CurrentRoom.WidthMeters = float.Parse(TxbWidth.Text, CultureInfo.InvariantCulture.NumberFormat);
+                            ClassDataBase.CurrentRoom.LengthMeters = float.Parse(TxbLenght.Text, CultureInfo.InvariantCulture.NumberFormat);
+                            ClassDataBase.CurrentRoom.IdPurporse = Convert.ToInt32(CmdPurporseRoom.SelectedValue);
+                            ClassDataBase.CurrentRoom.IdTypeOfRoom = Convert.ToInt32(CmdTypeRoom.SelectedValue);
+
+                            ClassDataBase.UniversClassFundEntities.SaveChanges();
+                            ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
+
+                        }
+                    }
                 }
-            }
 
             catch (Exception ex)
 
