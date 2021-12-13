@@ -16,49 +16,49 @@
 
                 <StackPanel Style="{StaticResource StpCenterHorEqual}">
             
-            <TextBlock Style="{StaticResource TxtCore}" Text="Введите номер комнаты:"/>
+            <TextBlock Style="{StaticResource TxtCore}" Text="Введите номер кабинета:"/>
             <TextBox Name="TxbRoomNumber" Style="{StaticResource TxbCore}" Margin="10 0 0 0" Width="200"/>
 
             </StackPanel>
 
             <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
 
-                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите расположение комнаты:"/>
+                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите расположение кабинета:"/>
                 <ComboBox Name="CmdLocal" SelectionChanged="CmdLocal_SelectionChanged" Margin="10 0 0 0" Width="200"/>
 
             </StackPanel>
 
             <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
 
-                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите высоту комнаты (м):"/>
+                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите высоту кабинета (м):"/>
                 <ComboBox Name="CmdHeight" Margin="10 0 0 0" Width="200"/>
 
             </StackPanel>
 
             <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
 
-                    <TextBlock Style="{StaticResource TxtCore}" Text="Введите ширину комнаты (м):"/>
+                    <TextBlock Style="{StaticResource TxtCore}" Text="Введите ширину кабинета (м):"/>
                 <TextBox Name="TxbWidth" Style="{StaticResource TxbCore}" Margin="10 0 0 0" Width="200"/>
 
             </StackPanel>
 
             <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
 
-                    <TextBlock Style="{StaticResource TxtCore}" Text="Введите длину комнаты (м):"/>
+                    <TextBlock Style="{StaticResource TxtCore}" Text="Введите длину кабинета (м):"/>
                 <TextBox Name="TxbLenght" Style="{StaticResource TxbCore}" Margin="10 0 0 0" Width="200"/>
 
             </StackPanel>
 
             <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
 
-                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите назначение комнаты:"/>
+                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите назначение кабинета:"/>
                 <ComboBox Name="CmdPurporseRoom" Margin="10 0 0 0" Width="200"/>
 
             </StackPanel>
 
             <StackPanel Style="{StaticResource StpCenterHorEqual}" Margin="0 10 0 0">
 
-                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите тип комнаты:"/>
+                <TextBlock Style="{StaticResource TxtCore}" Text="Выберите тип кабинета:"/>
                 <ComboBox Name="CmdTypeRoom" Margin="10 0 0 0" Width="200"/>
 
             </StackPanel>
