@@ -61,8 +61,6 @@ namespace UniversCorps.PagesCorp
 
             {
 
-                    ClassDataBase.CurrentCorpus = (Corps)DGCorps.SelectedValue;
-
                     DialogAddCorp dialogAddCorp = new DialogAddCorp();
                     dialogAddCorp.ShowDialog();
 
@@ -112,6 +110,7 @@ namespace UniversCorps.PagesCorp
 
                     {
 
+                        ClassDataBase.CurrentCorpus = null;
                         DGCorps.ItemsSource = ClassDataBase.UniversClassFundEntities.Corps.ToList();
                     
                     }
@@ -162,6 +161,8 @@ namespace UniversCorps.PagesCorp
 
                         WinDeleteQ winDeleteQ = new WinDeleteQ();
                         SystemSounds.Beep.Play();
+                        winDeleteQ.TxtText.Text = "Вы действительно хотите удалть корпус " + ClassDataBase.CurrentCorpus.Name + "?";
+                        winDeleteQ.TxtTitle.Text = "Удаление";
                         winDeleteQ.ShowDialog();
 
                         if (winDeleteQ.DialogResult == true)
@@ -170,6 +171,8 @@ namespace UniversCorps.PagesCorp
 
                             ClassDataBase.UniversClassFundEntities.Corps.Remove(ClassDataBase.CurrentCorpus);
                             ClassDataBase.UniversClassFundEntities.SaveChanges();
+
+                            ClassDataBase.CurrentCorpus = null;
 
                             DGCorps.ItemsSource = ClassDataBase.UniversClassFundEntities.Corps.ToList();
 
@@ -236,7 +239,32 @@ namespace UniversCorps.PagesCorp
         private void BtnInfo_Click(object sender, RoutedEventArgs e)
         {
 
+            try
 
+            {
+
+                if (DGCorps.SelectedValue != null)
+
+                {
+
+                    ClassDataBase.CurrentCorpus = (Corps)DGCorps.SelectedValue;
+
+                    ClassNavigate.ClassFrmMain.Navigate(new PageCorpInformation());
+
+                }
+
+                else MessageBox.Show("Для перехода к списку комнат выберите корпус", "Внимание!",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+            }
 
         }
     }

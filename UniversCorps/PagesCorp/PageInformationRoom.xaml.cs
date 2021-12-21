@@ -31,6 +31,8 @@ namespace UniversCorps.PagesCorp
 
             {
 
+                Title = "Информация о кабинете " + ClassDataBase.CurrentRoom.Room;
+
                 TxbRoomNumber.Text = ClassDataBase.CurrentRoom.Room.ToString();
                 TxbLocation.Text = ClassDataBase.CurrentRoom.LocHei.Location.Name;
                 TxbHeight.Text = ClassDataBase.CurrentRoom.LocHei.Ceiling.HeightMeters.ToString();
@@ -39,8 +41,12 @@ namespace UniversCorps.PagesCorp
                 TxbArea.Text = Convert.ToString(ClassDataBase.CurrentRoom.WidthMeters * ClassDataBase.CurrentRoom.LengthMeters);
                 TxbVolume.Text = Convert.ToString(ClassDataBase.CurrentRoom.WidthMeters * ClassDataBase.CurrentRoom.LengthMeters *
                     ClassDataBase.CurrentRoom.LocHei.Ceiling.HeightMeters);
+                
                 TxbPurporse.Text = ClassDataBase.CurrentRoom.Purporse.Name;
                 TxbTypeRoom.Text = ClassDataBase.CurrentRoom.TypeOfRoom.Name;
+                TxbDepartament.Text = ClassDataBase.CurrentRoom.Division.Department.Name;
+                TxbFaculty.Text = ClassDataBase.CurrentRoom.Division.Faculty.Name;
+                TxbLaboratory.Text = ClassDataBase.CurrentRoom.Division.Laboratory.Name;
 
             }
 
@@ -49,6 +55,7 @@ namespace UniversCorps.PagesCorp
             {
 
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                ClassDataBase.CurrentRoom = null;
                 ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
 
             }
@@ -57,6 +64,7 @@ namespace UniversCorps.PagesCorp
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
+            ClassDataBase.CurrentRoom = null;
             ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
         }
     }

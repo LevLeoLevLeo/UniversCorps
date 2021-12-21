@@ -33,6 +33,8 @@ namespace UniversCorps.PagesCorp
 
                 InitializeComponent();
 
+                Title = "Изменения кабинета " + ClassDataBase.CurrentRoom.Room;
+
                 TxbRoomNumber.Text = ClassDataBase.CurrentRoom.Room.ToString();
 
                 TxbWidth.Text = ClassDataBase.CurrentRoom.WidthMeters.ToString();
@@ -63,17 +65,17 @@ namespace UniversCorps.PagesCorp
                 CmdDivision.SelectedValuePath = "Id";
                 CmdDivision.DisplayMemberPath = "Name";
                 CmdDivision.ItemsSource = ClassDataBase.UniversClassFundEntities.Department.ToList();
-                CmdDivision.SelectedValue = ClassDataBase.UniversClassFundEntities.Division.FirstOrDefault(x => ClassDataBase.CurrentRoom.IdDivision == x.Id);
+                CmdDivision.SelectedItem = ClassDataBase.UniversClassFundEntities.Department.FirstOrDefault(x => ClassDataBase.CurrentRoom.Division.IdDepartment == x.Id);
 
                 CmdFaculty.SelectedValuePath = "Id";
                 CmdFaculty.DisplayMemberPath = "Name";
                 CmdFaculty.ItemsSource = ClassDataBase.UniversClassFundEntities.Faculty.ToList();
-                CmdFaculty.SelectedValue = ClassDataBase.UniversClassFundEntities.Faculty.FirstOrDefault(x => ClassDataBase.CurrentRoom.IdDivision == x.Id);
+                CmdFaculty.SelectedItem = ClassDataBase.UniversClassFundEntities.Faculty.FirstOrDefault(x => ClassDataBase.CurrentRoom.Division.IdFaculty == x.Id);
 
                 CmdLaboratory.SelectedValuePath = "Id";
                 CmdLaboratory.DisplayMemberPath = "Name";
                 CmdLaboratory.ItemsSource = ClassDataBase.UniversClassFundEntities.Laboratory.ToList();
-                CmdLaboratory.SelectedValue = ClassDataBase.UniversClassFundEntities.Laboratory.FirstOrDefault(x => ClassDataBase.CurrentRoom.IdDivision == x.Id);
+                CmdLaboratory.SelectedItem = ClassDataBase.UniversClassFundEntities.Laboratory.FirstOrDefault(x => ClassDataBase.CurrentRoom.Division.IdLaboratory == x.Id);
 
             }
 
@@ -82,6 +84,7 @@ namespace UniversCorps.PagesCorp
             {
 
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                ClassDataBase.CurrentRoom = null;
                 ClassNavigate.ClassFrmMain.Navigate(new PageCorpMain());
 
             }
@@ -154,8 +157,14 @@ namespace UniversCorps.PagesCorp
                             ClassDataBase.CurrentRoom.LengthMeters = float.Parse(TxbLenght.Text, CultureInfo.InvariantCulture.NumberFormat);
                             ClassDataBase.CurrentRoom.IdPurporse = Convert.ToInt32(CmdPurporseRoom.SelectedValue);
                             ClassDataBase.CurrentRoom.IdTypeOfRoom = Convert.ToInt32(CmdTypeRoom.SelectedValue);
-
+                            ClassDataBase.CurrentRoom.Division.IdDepartment = Convert.ToInt32(CmdDivision.SelectedValue);
+                            ClassDataBase.CurrentRoom.Division.IdFaculty = Convert.ToInt32(CmdFaculty.SelectedValue);
+                            ClassDataBase.CurrentRoom.Division.IdLaboratory = Convert.ToInt32(CmdLaboratory.SelectedValue);
+                            
                             ClassDataBase.UniversClassFundEntities.SaveChanges();
+
+                            ClassDataBase.CurrentRoom = null;
+
                             ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
 
                         }
@@ -176,7 +185,8 @@ namespace UniversCorps.PagesCorp
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         
         {
-            
+
+            ClassDataBase.CurrentRoom = null;
             ClassNavigate.ClassFrmMain.Navigate(new PageRoom());
 
         }

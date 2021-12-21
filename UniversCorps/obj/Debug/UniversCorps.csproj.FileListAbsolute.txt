@@ -67,8 +67,6 @@ C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\bin\Debug\ru\EntityFramework.re
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\UniversCorps_Content.g.cs
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\UniversCorps.csproj.CopyComplete
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\UniversCorps.csproj.SuggestedBindingRedirects.cache
-C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DilogDeleteQ.g.cs
-C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DilogDeleteQ.baml
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DislogChangeCorpName.g.cs
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DislogChangeCorpName.baml
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DialogAddCorp.g.cs
@@ -81,3 +79,9 @@ C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageChangeR
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageChangeRoom.baml
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageInformationRoom.g.cs
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageInformationRoom.baml
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DialogYesNo.g.cs
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DialogYesNo.baml
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DialogOk.g.cs
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DialogOk.baml
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageCorpInformation.g.cs
+C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageCorpInformation.baml

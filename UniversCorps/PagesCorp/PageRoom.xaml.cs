@@ -34,6 +34,8 @@ namespace UniversCorps.PagesCorp
             
             InitializeComponent();
 
+                Title = "Кабинеты корпуса " + ClassDataBase.CurrentCorpus.Name;
+
             DGFund.ItemsSource = ClassDataBase.UniversClassFundEntities.UniClassFundCorps.Where(x => x.IdCorps == ClassDataBase.CurrentCorpus.Id).ToList();
         
             }
@@ -120,8 +122,11 @@ namespace UniversCorps.PagesCorp
 
                     {
 
+                        ClassDataBase.UniversClassFundEntities.Division.Remove(ClassDataBase.CurrentRoom.Division);
                         ClassDataBase.UniversClassFundEntities.UniClassFundCorps.Remove(ClassDataBase.CurrentRoom);
                         ClassDataBase.UniversClassFundEntities.SaveChanges();
+
+                        ClassDataBase.CurrentRoom = null;
 
                         DGFund.ItemsSource = ClassDataBase.UniversClassFundEntities.UniClassFundCorps.Where(x => x.IdCorps == ClassDataBase.CurrentCorpus.Id).ToList();
 
@@ -190,6 +195,8 @@ namespace UniversCorps.PagesCorp
         
         {
 
+            ClassDataBase.CurrentRoom = null;
+            ClassDataBase.CurrentCorpus = null;
             ClassNavigate.ClassFrmMain.Navigate(new PageCorpMain());
 
         }

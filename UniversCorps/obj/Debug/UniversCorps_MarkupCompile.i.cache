@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\App.xaml
-9322019194
+11579943889
 2-1670966889
-326621102
+35-778331605
 181306801151
-DialogBox\DialogAddCorp.xaml;DialogBox\DislogChangeCorpName.xaml;MainWindow.xaml;PagesCorp\PageAddRoom.xaml;PagesCorp\PageChangeRoom.xaml;PagesCorp\PageCorpMain.xaml;DialogBox\DilogDeleteQ.xaml;PagesCorp\PageInformationRoom.xaml;PagesCorp\PageRoom.xaml;
+DialogBox\DialogAddCorp.xaml;DialogBox\DialogOk.xaml;DialogBox\DislogChangeCorpName.xaml;MainWindow.xaml;PagesCorp\PageAddRoom.xaml;PagesCorp\PageChangeRoom.xaml;PagesCorp\PageCorpInformation.xaml;PagesCorp\PageCorpMain.xaml;DialogBox\DialogYesNo.xaml;PagesCorp\PageInformationRoom.xaml;PagesCorp\PageRoom.xaml;
 
-True
+False
 

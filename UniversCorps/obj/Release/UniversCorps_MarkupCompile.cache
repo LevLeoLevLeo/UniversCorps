@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\App.xaml
-2-1657019059
+10-1317945556
 2-1670966889
-24-741226495
+32-214962014
 181306801151
-MainWindow.xaml;PagesCorp\PageCorpMain.xaml;
+DialogBox\DialogAddCorp.xaml;DialogBox\DialogOk.xaml;DialogBox\DislogChangeCorpName.xaml;MainWindow.xaml;PagesCorp\PageAddRoom.xaml;PagesCorp\PageChangeRoom.xaml;PagesCorp\PageCorpMain.xaml;DialogBox\DialogYesNo.xaml;PagesCorp\PageInformationRoom.xaml;PagesCorp\PageRoom.xaml;
 
-True
+False
 

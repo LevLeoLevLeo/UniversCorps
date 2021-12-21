@@ -32,6 +32,8 @@ namespace UniversCorps.PagesCorp
              
                 InitializeComponent();
 
+                Title = "Добавление кабинета для корпуса " + ClassDataBase.CurrentCorpus.Name;
+
                 CmdLocal.SelectedValuePath = "Id";
                 CmdLocal.DisplayMemberPath = "Location.Name";
                 CmdLocal.ItemsSource = ClassDataBase.UniversClassFundEntities.LocHei.ToList();
@@ -107,7 +109,7 @@ namespace UniversCorps.PagesCorp
 
                 if (string.IsNullOrWhiteSpace(TxbRoomNumber.Text) || string.IsNullOrWhiteSpace(TxbWidth.Text) || string.IsNullOrWhiteSpace(TxbLenght.Text)
                     || CmdLocal.SelectedItem == null || CmdHeight.SelectedItem == null || CmdPurporseRoom.SelectedItem == null ||
-                    CmdTypeRoom.SelectedItem == null)
+                    CmdTypeRoom.SelectedItem == null || CmdDivision.SelectedItem == null || CmdFaculty.SelectedItem == null || CmdLaboratory.SelectedValue == null)
 
                 {
 
@@ -157,6 +159,18 @@ namespace UniversCorps.PagesCorp
 
                     {
 
+                        Division division = new Division()
+
+                        { 
+                        
+                            IdDepartment = Convert.ToInt32(CmdDivision.SelectedValue),
+                            IdFaculty = Convert.ToInt32(CmdFaculty.SelectedValue),
+                            IdLaboratory = Convert.ToInt32(CmdLaboratory.SelectedValue),
+
+                        };
+
+                        ClassDataBase.UniversClassFundEntities.Division.Add(division);
+
                         UniClassFundCorps uniClass = new UniClassFundCorps()
 
                         {
@@ -168,6 +182,7 @@ namespace UniversCorps.PagesCorp
                             LengthMeters = float.Parse(TxbLenght.Text, CultureInfo.InvariantCulture.NumberFormat),
                             IdPurporse = Convert.ToInt32(CmdPurporseRoom.SelectedValue),
                             IdTypeOfRoom = Convert.ToInt32(CmdTypeRoom.SelectedValue),
+                            IdDivision = division.Id,
 
                         };
 
