@@ -81,7 +81,5 @@ C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageInforma
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageInformationRoom.baml
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DialogYesNo.g.cs
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DialogYesNo.baml
-C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DialogOk.g.cs
-C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\DialogBox\DialogOk.baml
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageCorpInformation.g.cs
 C:\Users\LevLe\Desktop\UniversCorps\UniversCorps\obj\Debug\PagesCorp\PageCorpInformation.baml

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,6 +18,7 @@ using System.Windows.Shapes;
 using UniversCorps.Class;
 using UniversCorps.DataBase;
 using UniversCorps.DialogBox;
+using static UniversCorps.DialogBox.WinDeleteQ;
 
 namespace UniversCorps.PagesCorp
 {
@@ -61,6 +64,8 @@ namespace UniversCorps.PagesCorp
 
             {
 
+               
+
                     DialogAddCorp dialogAddCorp = new DialogAddCorp();
                     dialogAddCorp.ShowDialog();
 
@@ -68,11 +73,12 @@ namespace UniversCorps.PagesCorp
 
                     {
 
-                        DGCorps.ItemsSource = ClassDataBase.UniversClassFundEntities.Corps.ToList();
+                       DGCorps.ItemsSource = ClassDataBase.UniversClassFundEntities.Corps.ToList();
 
                     }
 
-            }
+              
+                }
 
             catch (Exception ex)
 
@@ -159,13 +165,10 @@ namespace UniversCorps.PagesCorp
                     {
 
 
-                        WinDeleteQ winDeleteQ = new WinDeleteQ();
-                        SystemSounds.Beep.Play();
-                        winDeleteQ.TxtText.Text = "Вы действительно хотите удалть корпус " + ClassDataBase.CurrentCorpus.Name + "?";
-                        winDeleteQ.TxtTitle.Text = "Удаление";
-                        winDeleteQ.ShowDialog();
+                        bool? Result = new WinDeleteQ("Вы действительно хотите удалить корпус " + ClassDataBase.CurrentCorpus.Name + "?", "Удаление",
+                            MessageButtons.YesNoCancel, MessageSound.Warning).ShowDialog();
 
-                        if (winDeleteQ.DialogResult == true)
+                        if (Result == true)
 
                         {
 
@@ -178,15 +181,15 @@ namespace UniversCorps.PagesCorp
 
                         }
 
-                        else winDeleteQ.Close();
-
                     }  
                     
-                    else MessageBox.Show("Для удаления выберите пустой корпус", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                    else
+                    {
+                        bool? Result = new WinDeleteQ("Выберите пустой корпус", "Внимание!", MessageButtons.Ok, MessageSound.Information).ShowDialog();
+                    }
                 }
 
-                else MessageBox.Show("Для удаления выберите корпус", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
+                else MessageBox.Show("Для удаления выберите корпус", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
                     
             }
 
@@ -194,7 +197,7 @@ namespace UniversCorps.PagesCorp
 
             {
 
-                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
             }
         }
@@ -263,6 +266,35 @@ namespace UniversCorps.PagesCorp
             {
 
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+            }
+
+        }
+
+        private void BtnSendMsg_Click(object sender, RoutedEventArgs e)
+        
+        {
+
+            MailAddress fromMailAddress = new MailAddress("testemailformailing@gmail.com", "UniversCorpsSupport");
+            MailAddress toMailAddress = new MailAddress("Leo541541145@gmail.com", "UserName");
+
+            using (MailMessage mailMessage = new MailMessage(fromMailAddress, toMailAddress))
+
+            using (SmtpClient smtpClient = new SmtpClient())
+
+            {
+
+                mailMessage.Subject = "Проверка";
+                mailMessage.Body = "Работает";
+                
+                smtpClient.Host = "smtp.gmail.com";
+                smtpClient.Port = 587;
+                smtpClient.EnableSsl = true;
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential(fromMailAddress.Address, "r6h-Emq-SMH-uCL");
+
+                smtpClient.Send(mailMessage);
 
             }
 

@@ -36,6 +36,7 @@ namespace UniversCorps.DialogBox
 
             {
 
+
                 if (string.IsNullOrWhiteSpace(TxbNewCorp.Text))
 
                 {
@@ -46,29 +47,32 @@ namespace UniversCorps.DialogBox
 
                 else
 
-                {   
-                    var corpname = ClassDataBase.UniversClassFundEntities.Corps.FirstOrDefault(x => x.Name == TxbNewCorp.Text);
+                {
+                   
+                        ClassDataBase.UniversClassFundEntities.Corps.FirstOrDefault(x => x.Name == TxbNewCorp.Text);
 
-                    if (corpname != null) MessageBox.Show("Данный корпус уже внесен в базу данных.", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
+                        if (ClassDataBase.UniversClassFundEntities.Corps != null) MessageBox.Show("Данный корпус уже внесен в базу данных.", "Внимание", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    else
-
-                    {
-
-                        this.DialogResult = true;
-
-                        Corps corps = new Corps()
+                        else
 
                         {
 
-                            Name = TxbNewCorp.Text
+                            this.DialogResult = true;
 
-                        };
+                            Corps corps = new Corps()
 
-                        ClassDataBase.UniversClassFundEntities.Corps.Add(corps);
-                        ClassDataBase.UniversClassFundEntities.SaveChanges();
+                            {
 
-                    }       
+                                Name = TxbNewCorp.Text
+
+                            };
+
+                            ClassDataBase.UniversClassFundEntities.Corps.Add(corps);
+                            ClassDataBase.UniversClassFundEntities.SaveChanges();
+
+                        }
+
+                 
                 }
             }
 

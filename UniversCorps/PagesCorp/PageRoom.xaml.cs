@@ -114,11 +114,10 @@ namespace UniversCorps.PagesCorp
 
                     ClassDataBase.CurrentRoom = (UniClassFundCorps)DGFund.SelectedValue;
 
-                    WinDeleteQ winDeleteQ = new WinDeleteQ(); //Диалоговое окно на подтверждение удаления
-                    SystemSounds.Beep.Play();
-                    winDeleteQ.ShowDialog();
+                    bool? Result = new WinDeleteQ("Вы действительно хотите удалить комнату " + ClassDataBase.CurrentRoom.Room + "?",
+                        "Удаление комнаты", WinDeleteQ.MessageButtons.YesNo, WinDeleteQ.MessageSound.Warning).ShowDialog();
 
-                    if (winDeleteQ.DialogResult == true)
+                    if (Result == true)
 
                     {
 
@@ -131,8 +130,6 @@ namespace UniversCorps.PagesCorp
                         DGFund.ItemsSource = ClassDataBase.UniversClassFundEntities.UniClassFundCorps.Where(x => x.IdCorps == ClassDataBase.CurrentCorpus.Id).ToList();
 
                     }
-
-                    else winDeleteQ.Close();
 
                 }
 

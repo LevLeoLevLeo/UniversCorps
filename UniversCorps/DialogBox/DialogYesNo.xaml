@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniversCorps.DialogBox"
         mc:Ignorable="d"
-        Title="Удаление" Style="{StaticResource WinDialog}" ResizeMode="CanResize" MaxWidth="415"
-        SizeToContent="WidthAndHeight" ShowInTaskbar="False"  Activated="Window_Activated" Deactivated="Window_Deactivated"
+        Title="Удаление" Style="{StaticResource WinDialog}" ResizeMode="NoResize" Width="410" MinWidth="410" MaxWidth="410"
+        MinHeight="150" Height="150" SizeToContent="Height" ShowInTaskbar="False"  Topmost="True"
         WindowStartupLocation="CenterScreen">
     
     <Grid>
@@ -14,39 +14,47 @@
         <Grid.RowDefinitions>
 
             <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
 
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
 
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="64"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="30"/>
 
         </Grid.ColumnDefinitions>
 
         <!--#region UpPanel-->
-        
+
         <Border Style="{StaticResource BrdUpPanel}" Grid.ColumnSpan="3"/>
 
         <Image Style="{StaticResource ImgLogo}" Grid.ColumnSpan="3" Height="20px" Width="20px"/>
 
         <Button Name="BtnClose" Style="{StaticResource BtnDialogClose}" Grid.ColumnSpan="3" Click="BtnClose_Click"/>
 
-        <TextBlock Name="TxtTitle" Style="{StaticResource TxtTitle}" Grid.ColumnSpan="3" FontSize="15pt"/>
+        <TextBlock Name="TxtTitle" Style="{StaticResource TxtTitle}" Grid.ColumnSpan="3" FontSize="14pt"/>
 
         <!--#endregion-->
 
-        <TextBlock Name="TxtText" Style="{StaticResource TxtCore}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="16pt" TextWrapping="Wrap" Margin="0 0 0 30"/>
+        <TextBlock Name="TxtText" Style="{StaticResource TxtCore}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top"
+                   FontSize="14pt" TextWrapping="Wrap"/>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal" 
-                    Margin="0 0 0 10">
+        <StackPanel Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal" 
+                    >
 
             <Button Name="BtnYes" Style="{StaticResource BtnDialogMain}" Content="Да" Click="BtnYes_Click"/>
 
-            <Button Name="BtnNo" Style="{StaticResource BtnDialogMain}" Content="Нет" Margin="30 0 0 0" Click="BtnNo_Click"/>
+            <Button Name="BtnNo" Style="{StaticResource BtnDialogMain}" Content="Нет" Margin="10 0 0 0" Click="BtnNo_Click"/>
+
+            <Button Name="BtnOk" Style="{StaticResource BtnDialogMain}" Content="Ок" Click="BtnOk_Click"/>
+
+            <Button Name="BtnCancel" Style="{StaticResource BtnDialogMain}" Content="Закрыть" Width="90" Margin="10 0 0 0" Click="BtnCancel_Click"/>
 
         </StackPanel>
         

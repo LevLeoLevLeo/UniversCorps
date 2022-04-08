@@ -131,17 +131,10 @@
     <Compile Include="DialogBox\DialogAddCorp.xaml.cs">
       <DependentUpon>DialogAddCorp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DialogBox\DialogOk.xaml.cs">
-      <DependentUpon>DialogOk.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DialogBox\DialogYesNo.xaml.cs">
       <DependentUpon>DialogYesNo.xaml</DependentUpon>
     </Compile>
     <Page Include="DialogBox\DialogAddCorp.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DialogBox\DialogOk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

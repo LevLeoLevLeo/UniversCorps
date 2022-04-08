@@ -44,6 +44,8 @@
 
         </StackPanel>
 
+        <Button Name="BtnSendMsg" Click="BtnSendMsg_Click" Content="Отправить" Style="{StaticResource BtnMain}"/>
+
     </Grid>
     
 </Page>
